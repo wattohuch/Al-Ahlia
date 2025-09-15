@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Al-Ahlia Contracting Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2B48C;
+            --dark: #441102;
+            --light: #F5F5F0;
+            --accent: #CD853F;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Contact Page Header */
+        .contact-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-header.scrolled {
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        
+        .contact-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        
+        .contact-logo img {
+            height: 70px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-header.scrolled .contact-logo img {
+            height: 50px;
+        }
+        
+        .contact-nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .contact-nav-item {
+            position: relative;
+            margin-left: 30px;
+        }
+        
+        .contact-nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            transition: var(--transition);
+            position: relative;
+            padding: 10px 0;
+        }
+        
+        .contact-nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .contact-nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .contact-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            z-index: 100;
+        }
+        
+        .contact-dropdown-menu:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid white;
+        }
+        
+        .contact-nav-item:hover .contact-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .contact-dropdown-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        
+        .contact-dropdown-item:hover {
+            background: rgba(0,0,0,0.02);
+            padding-left: 25px;
+        }
+        
+        .contact-mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Contact Page Footer */
+        .contact-footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .contact-footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .contact-footer-links {
+            list-style: none;
+        }
+        
+        .contact-footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .contact-footer-links a {
+            color: rgba(255,255,255,0.7);
+            transition: var(--transition);
+        }
+        
+        .contact-footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .contact-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .contact-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .contact-social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Rest of your contact page styles... */
+        .page-header {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1484807352052-23338990c6c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Breadcrumbs Styling */
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            display: inline-flex;
+            padding: 10px 25px;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .breadcrumb-item {
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: #ffffff;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '›';
+            margin: 0 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Contact Tabs */
+        .contact-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-tab {
+            padding: 15px 30px;
+            background: white;
+            margin: 0 10px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .contact-tab:hover:not(.active) {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Form Sections */
+        .form-section {
+            display: none;
+            padding: 40px 0 80px;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-label.required::after {
+            content: '*';
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            border: 1px dashed #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            cursor: pointer;
+        }
+        
+        .file-upload-button {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .file-name {
+            color: var(--gray);
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            margin: 30px auto 0;
+            min-width: 200px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header {
+                height: 50vh;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            .contact-tab {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .contact-nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: all 0.5s ease;
+            }
+            
+            .contact-nav-menu.active {
+                left: 0;
+            }
+            
+            .contact-nav-item {
+                margin: 15px 0;
+            }
+            
+            .contact-dropdown-menu {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                box-shadow: none;
+                background: rgba(0,0,0,0.03);
+            }
+            
+            .contact-dropdown-menu:before {
+                display: none;
+            }
+            
+            .contact-nav-item:hover .contact-dropdown-menu {
+                display: block;
+            }
+            
+            .contact-mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .breadcrumb {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .contact-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-tab {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with unique class names -->
+    <header class="contact-header" id="contact-header">
+        <div class="container contact-header-container">
+            <a href="#" class="contact-logo">
+                <img src="images/logo.png" alt="Al-Ahlia Contracting Group Logo">
+            </a>
+            
+            <button class="contact-mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="contact-nav-menu">
+                    <li class="contact-nav-item"><a href="index.html" class="contact-nav-link">Home</a></li>
+                    <li class="contact-nav-item">
+                        <a href="about.html" class="contact-nav-link">About Us</a>
+                    </li>
+                    <li class="contact-nav-item">
+                        <a href="services.html" class="contact-nav-link">Our Services</a>
+                    </li>
+                    <li class="contact-nav-item">
+                        <a href="projects.html" class="contact-nav-link">Our Projects</a>
+                    </li>
+                    <li class="contact-nav-item">
+                        <a href="#contact" class="contact-nav-link active">Contact Us</a>
+                    </li>
+                    <div id="google_translate_element_container">
+                        <div id="google_translate_element"></div>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="header-content">
+                <h1>Contact Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="contact-tabs">
+                <div class="contact-tab active" data-tab="careers">Careers</div>
+                <div class="contact-tab" data-tab="general">General Inquiries</div>
+                <div class="contact-tab" data-tab="contractors">Contractors</div>
+            </div>
+
+            <div id="careers" class="form-section active">
+                <div class="form-container">
+                    <h2 class="form-title">Join Our Team</h2>
+                    <form id="careers-form" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="candidate-name" class="form-label required">Candidate Name</label>
+                            <input type="text" id="candidate-name" name="candidateName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob" class="form-label required">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="career-email" class="form-label required">Your Email</label>
+                            <input type="email" id="career-email" name="careerEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="education" class="form-label">Education/Qualifications</label>
+                            <textarea id="education" name="education" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality" class="form-label">Nationality</label>
+                            <input type="text" id="nationality" name="nationality" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Upload CV File</label>
+                            <div class="file-upload">
+                                <input type="file" id="cv-upload" name="cv" class="file-upload-input" accept=".pdf,.doc,.docx">
+                                <label for="cv-upload" class="file-upload-label">
+                                    <span class="file-name">No file chosen</span>
+                                    <span class="file-upload-button">Choose File</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="general" class="form-section">
+                <div class="form-container">
+                    <h2 class="form-title">General Inquiries</h2>
+                    <form id="general-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label required">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label required">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="contractors" class="form-section">
+                <div class="form-container">
+                    <h2 class="form-title">Contractor Registration</h2>
+                    <form id="contractors-form">
+                        <div class="form-group">
+                            <label for="contractor-name" class="form-label required">Your Name</label>
+                            <input type="text" id="contractor-name" name="contractorName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business" class="form-label required">Business</label>
+                            <select id="business" name="business" class="form-control" required>
+                                <option value="" disabled selected>Select your business type</option>
+                                <option value="contractor">Contractor</option>
+                                <option value="supplier">Supplier</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label required">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fax" class="form-label">Fax</label>
+                            <input type="text" id="fax" name="fax" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="contractor-email" class="form-label required">Your Email</label>
+                            <input type="email" id="contractor-email" name="contractorEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" id="location" name="location" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="project-type" class="form-label">Project Type</label>
+                            <select id="project-type" name="projectType" class="form-control">
+                                <option value="" disabled selected>Select a project type</option>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="governmental">Governmental</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="villas">Villas</option>
+                                <option value="mosque">Mosque</option>
+                                <option value="educational">Educational</option>
+                                <option value="industrial">Industrial</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="description" name="description" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Register as Contractor</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer with unique class names -->
+    <footer class="contact-footer">
+        <div class="container">
+            <div class="contact-footer-container">
+                <div class="contact-footer-col">
+                    <h3>Al-Ahlia Contracting</h3>
+                    <p>Building Kuwait's future with excellence since 1978. We deliver quality construction services with integrity and innovation.</p>
+                    <div class="contact-social-links">
+                        <a href="https://www.linkedin.com/company/ahlia-contracting-group" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/acgkuwait/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/acgkuwait" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/user/acgkuwait" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="contact-footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="contact-footer-col">
+                    <h3>Services</h3>
+                    <ul class="contact-footer-links">
+                        <li><a href="services.html">Construction Management</a></li>
+                        <li><a href="services.html">Architectural Design</a></li>
+                        <li><a href="services.html">Project Planning</a></li>
+                        <li><a href="services.html">Value Engineering</a></li>
+                        <li><a href="services.html">Residential Construction</a></li>
+                    </ul>
+                </div>
+                <div class="contact-footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Al-Rai, Kuwait</li>
+                        <li><i class="fas fa-phone-alt"></i> +965 24728023</li>
+                        <li><i class="fas fa-envelope"></i> info@acg.com.kw</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-copyright">
+                <p>© <span id="copyright-year">2025</span> Al-Ahlia Contracting Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky header
+        const contactHeader = document.getElementById('contact-header');
+        const sticky = contactHeader.offsetTop;
+
+        function stickyHeader() {
+            if (window.pageYOffset > sticky) {
+                contactHeader.classList.add("scrolled");
+            } else {
+                contactHeader.classList.remove("scrolled");
+            }
+        }
+
+        window.onscroll = function() {
+            stickyHeader()
+        };
+
+        // Set current year for copyright
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Tab switching functionality
+        document.querySelectorAll('.contact-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.contact-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding section
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // File upload name display
+        const fileInput = document.getElementById('cv-upload');
+        const fileName = document.querySelector('.file-name');
+        
+        if(fileInput) {
+            fileInput.addEventListener('change', function() {
+                if(this.files.length > 0) {
+                    fileName.textContent = this.files[0].name;
+                } else {
+                    fileName.textContent = 'No file chosen';
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.contact-mobile-menu-btn');
+        const navMenu = document.querySelector('.contact-nav-menu');
+        
+        if(mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+          <script>
+// Enhanced form submission with better error handling
+async function submitForm(url, options, formId) {
+  try {
+    const form = document.getElementById(formId);
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    const res = await fetch(url, options);
+    const text = await res.text();
+    
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      throw new Error('Invalid response from server');
+    }
+    
+    if (data.success) {
+      // Success message
+      alert(data.message);
+      form.reset();
+      
+      // Reset file name display for careers form
+      if (formId === 'careers-form') {
+        document.querySelector('.file-name').textContent = 'No file chosen';
+      }
+    } else {
+      // Error message
+      alert('Error: ' + (data.message || 'Submission failed'));
+    }
+    
+    return data;
+  } catch (err) {
+    alert("Submission failed: " + err.message);
+    console.error(err);
+  } finally {
+    // Reset button state
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+}
+
+// Careers form
+document.getElementById('careers-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  submitForm('/api/contact/careers', {
+    method: 'POST',
+    body: formData
+  }, 'careers-form');
+});
+
+// General form
+document.getElementById('general-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  submitForm('/api/contact/general', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData)
+  }, 'general-form');
+});
+
+// Contractors form
+document.getElementById('contractors-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  submitForm('/api/contact/contractors', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData)
+  }, 'contractors-form');
+});
+  </script>
+</body>
+</html>

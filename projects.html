@@ -1,0 +1,2595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Al-Ahlia Contracting Group</title>
+
+    <link rel="icon" href="images/ACG LOGO-2.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+<style>
+    :root {
+        --primary: #8B4513;
+        --secondary: #D2B48C;
+        --dark: #441102;
+        --light: #F5F5F0;
+        --accent: #CD853F;
+        --gray: #6c757d;
+        --transition: all 0.3s ease;
+        --card-shadow: 0 20px 25px -5px rgba(139, 69, 19, 0.1), 0 10px 10px -5px rgba(139, 69, 19, 0.04);
+        --card-shadow-hover: 0 25px 50px -12px rgba(139, 69, 19, 0.25);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: var(--light);
+        position: relative;
+    }
+    
+    /* Enhanced background pattern */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 15% 50%, rgba(139, 69, 19, 0.03) 0px, transparent 50%),
+            radial-gradient(circle at 85% 30%, rgba(210, 180, 140, 0.03) 0px, transparent 50%),
+            radial-gradient(circle at 50% 80%, rgba(205, 133, 63, 0.03) 0px, transparent 50%);
+        background-attachment: fixed;
+        z-index: -1;
+        pointer-events: none;
+    }
+    
+    /* NEW: Interactive floating shapes background */
+    .floating-shapes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    
+    .shape {
+        position: absolute;
+        opacity: 0.15;
+        border-radius: 50%;
+        background: var(--primary);
+        filter: blur(2px);
+        animation: float 25s infinite linear;
+    }
+    
+    .shape:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 10%;
+        animation-duration: 30s;
+        animation-delay: 0s;
+        background: var(--accent);
+    }
+    
+    .shape:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        top: 65%;
+        left: 75%;
+        animation-duration: 35s;
+        animation-delay: -5s;
+        background: var(--secondary);
+    }
+    
+    .shape:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        top: 40%;
+        left: 40%;
+        animation-duration: 25s;
+        animation-delay: -10s;
+        background: var(--dark);
+    }
+    
+    .shape:nth-child(4) {
+        width: 100px;
+        height: 100px;
+        top: 80%;
+        left: 20%;
+        animation-duration: 40s;
+        animation-delay: -15s;
+        background: var(--accent);
+    }
+    
+    .shape:nth-child(5) {
+        width: 70px;
+        height: 70px;
+        top: 10%;
+        left: 80%;
+        animation-duration: 28s;
+        animation-delay: -20s;
+        background: var(--primary);
+    }
+    
+    @keyframes float {
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+            transform: translate(10px, 50px) rotate(90deg);
+        }
+        50% {
+            transform: translate(20px, 0px) rotate(180deg);
+        }
+        75% {
+            transform: translate(10px, -50px) rotate(270deg);
+        }
+        100% {
+            transform: translate(0, 0) rotate(360deg);
+        }
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    /* --- START: STICKY HEADER FIX --- */
+    #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+    }
+    
+    #header.sticky {
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+    
+    .logo img {
+        height: 60px;
+        transition: var(--transition);
+    }
+    
+    #header.sticky .logo img {
+        height: 50px;
+    }
+    
+    .nav-menu {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-item {
+        position: relative;
+        margin: 0 15px;
+    }
+    
+    .nav-link {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 10px 0;
+        position: relative;
+        transition: var(--transition);
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+    }
+    
+    .nav-link:hover::after,
+    .nav-link:focus::after {
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        width: 200px;
+        padding: 15px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        z-index: 100;
+    }
+    
+    .nav-item:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .dropdown-item {
+        padding: 8px 20px;
+    }
+    
+    .dropdown-item a {
+        color: var(--dark);
+        text-decoration: none;
+        transition: var(--transition);
+        display: block;
+    }
+    
+    .dropdown-item a:hover {
+        color: var(--primary);
+        padding-left: 5px;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+    }
+    
+    /* --- END: STICKY HEADER FIX --- */
+    
+    /* --- HERO SECTION WITH BACKGROUND IMAGE --- */
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        transition: transform 0.3s ease-out;
+        z-index: -1;
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0.2) 100%
+        );
+        z-index: 0;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        padding: 0 20px;
+        max-width: 800px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    
+    .hero-scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+        z-index: 2;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        40% {
+            transform: translateX(-50%) translateY(-20px);
+        }
+        60% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+    
+    /* --- NEW STYLES for relocated page title --- */
+    .page-title-header {
+        text-align: center;
+        padding: 150px 0 60px; /* Increased top padding to account for fixed header */
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .page-title-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(210, 180, 140, 0.05) 100%);
+        z-index: -1;
+    }
+    
+    .page-title-header h1 {
+        font-size: 3.5rem;
+        color: var(--dark);
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+        font-weight: 700;
+    }
+    
+    .page-title-header h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--primary);
+    }
+    
+    .page-title-header .breadcrumb {
+        background-color: transparent;
+        display: inline-flex;
+        padding: 0;
+        justify-content: center;
+        list-style: none;
+    }
+    
+    .page-title-header .breadcrumb-item a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+    
+    .page-title-header .breadcrumb-item a:hover {
+        color: var(--dark);
+    }
+    
+    .page-title-header .breadcrumb-item.active {
+        color: var(--gray);
+    }
+    
+    .page-title-header .breadcrumb-item + .breadcrumb-item::before {
+        content: '›';
+        margin: 0 12px;
+        color: var(--gray);
+    }
+    /* --- END NEW STYLES --- */
+    
+    /* Projects Section */
+    .projects-section {
+        padding: 80px 0;
+        position: relative;
+    }
+    
+
+    
+    /* Projects Grid */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .project-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition);
+        height: 380px;
+        background: white;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: var(--card-shadow-hover);
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+        transform: scale(1.05);
+    }
+    
+    .project-card:hover .project-image {
+        transform: scale(1.1);
+    }
+    
+    .project-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        padding: 30px 20px 20px;
+        color: white;
+        transform: translateY(0);
+        transition: var(--transition);
+    }
+    
+    .project-card:hover .project-overlay {
+        background: linear-gradient(to top, rgba(139, 69, 19, 0.95), transparent);
+        padding-top: 50px;
+    }
+    
+    .project-category {
+        display: inline-block;
+        padding: 5px 15px;
+        background: var(--secondary);
+        color: var(--dark);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    
+    .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    
+    .project-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .project-actions {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: var(--transition);
+    }
+    
+    .project-card:hover .project-actions {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.9);
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .action-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* NEW: Project card glow effect */
+    .project-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 15px;
+        opacity: 0;
+        box-shadow: 0 0 30px 10px rgba(139, 69, 19, 0.3);
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .project-card:hover::after {
+        opacity: 1;
+    }
+    
+    /* Load More Button */
+    .load-more-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .load-more-btn {
+        padding: 15px 40px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    }
+    
+    .load-more-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: var(--dark);
+        transition: var(--transition);
+        z-index: -1;
+        border-radius: 30px;
+    }
+    
+    .load-more-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .load-more-btn:hover::before {
+        width: 100%;
+    }
+    
+    .load-more-btn .loading {
+        display: none;
+    }
+    
+    .load-more-btn.loading .text {
+        display: none;
+    }
+    
+    .load-more-btn.loading .loading {
+        display: block;
+    }
+    
+    /* Project Counter */
+    .project-counter {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.2rem;
+        color: var(--dark);
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 30px;
+        background: rgba(139, 69, 19, 0.1);
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(139, 69, 19, 0.1);
+    }
+    
+    .counter-number {
+        font-weight: 700;
+        color: var(--primary);
+    }
+    
+    /* Statistics Banner */
+    .stats-banner {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        padding: 100px 0;
+        margin: 100px 0;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .stats-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><circle cx="50" cy="50" r="40" stroke="white" stroke-width="2" fill="none" /></svg>');
+        background-size: 100px 100px;
+        background-repeat: repeat;
+        z-index: 0;
+    }
+    
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .stat-item {
+        padding: 20px;
+        position: relative;
+    }
+    
+    .stat-item::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 60%;
+        background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .stat-item:last-child::after {
+        display: none;
+    }
+    
+    .stat-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+    
+    /* Project Modal */
+    .project-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        padding: 20px;
+    }
+    
+    .project-modal.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 1100px;
+        max-height: 90vh;
+        border-radius: 15px;
+        overflow: hidden;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    
+    .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.5);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: var(--transition);
+    }
+    
+    .modal-close:hover {
+        background: var(--primary);
+        transform: rotate(90deg);
+    }
+    
+    .modal-header {
+        position: relative;
+        height: 400px;
+    }
+    
+    .modal-header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .modal-body {
+        padding: 40px;
+    }
+    
+    .modal-title {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        color: var(--dark);
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .modal-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: var(--primary);
+    }
+    
+    .modal-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .detail-item {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .detail-label {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin-bottom: 5px;
+    }
+    
+    .detail-value {
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 1.1rem;
+    }
+    
+    .modal-description {
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+    
+    .modal-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .gallery-item {
+        height: 150px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+    
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+    
+    /* Footer */
+    footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+        position: relative;
+    }
+    
+    footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+    
+    .footer-col h3 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .footer-col h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary);
+    }
+    
+    .footer-col p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+    }
+    
+    .footer-links {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+    
+    .footer-links li i {
+        margin-right: 10px;
+        color: var(--secondary);
+    }
+    
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+    }
+    
+    .copyright {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 999;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .back-to-top:hover {
+        background: var(--dark);
+        transform: translateY(-5px);
+    }
+    
+    /* Enhanced Preloader */
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+    }
+    
+    .preloader-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+        animation: pulse 1.5s infinite ease-in-out;
+    }
+    
+    .preloader-logo img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .preloader-progress {
+        width: 200px;
+        height: 4px;
+        background: rgba(139, 69, 19, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .preloader-progress-bar {
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: var(--primary);
+        border-radius: 4px;
+        transition: width 0.4s ease;
+    }
+    
+    .preloader-text {
+        margin-top: 20px;
+        color: var(--dark);
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    /* Decorative elements */
+    .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(139, 69, 19, 0.05);
+        z-index: -1;
+    }
+    
+    .circle-1 {
+        width: 300px;
+        height: 300px;
+        top: -150px;
+        right: -150px;
+    }
+    
+    .circle-2 {
+        width: 200px;
+        height: 200px;
+        bottom: 100px;
+        left: -100px;
+    }
+
+    /* Enhanced decorative elements for visual interest */
+    .decorative-element {
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+    }
+    
+    .decorative-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(139, 69, 19, 0.1);
+    }
+    
+    .dot-1 {
+        top: 20%;
+        left: 5%;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .dot-2 {
+        top: 60%;
+        right: 7%;
+        animation: float 8s ease-in-out infinite;
+    }
+    
+    .dot-3 {
+        bottom: 30%;
+        left: 10%;
+        animation: float 7s ease-in-out infinite;
+    }
+    
+    .decorative-line {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1), transparent);
+    }
+    
+    .line-1 {
+        width: 100px;
+        top: 40%;
+        right: 10%;
+        transform: rotate(45deg);
+    }
+    
+    .line-2 {
+        width: 150px;
+        bottom: 20%;
+        left: 5%;
+        transform: rotate(-30deg);
+    }
+#google_translate_element_container {
+    position: absolute;
+    top: 15px; /* Distance from the top of the page */
+    right: 25px; /* Distance from the right of the page */
+    z-index: 1000; /* Ensures it stays on top of other content */
+    display: flex;
+    align-items: center;
+}
+
+/* This targets the inner div that Google Translate uses */
+#google_translate_element {
+    width: auto;
+}
+
+/* This targets the widget itself for basic appearance */
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block;
+}
+
+/* * IMPORTANT: The text color is now dark by default 
+ * because it sits on the white background of the page, not the dark image.
+*/
+.goog-te-gadget-simple .goog-te-menu-value span {
+    color: var(--dark) !important; /* Changed from --light to --dark */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none !important;
+    line-height: 1;
+}
+
+/* This makes sure the down arrow is also the correct color */
+.goog-te-gadget-simple .goog-te-menu-value span .goog-arrow {
+    color: var(--dark) !important; /* Changed from --light to --dark */
+}
+
+/* * The .scrolled rule is no longer needed for the translator, 
+ * as its position is now fixed at the top of the page.
+*/
+
+/* This removes the "Powered by Google" text and the Google icon */
+.goog-logo-link, .goog-te-gadget-icon {
+    display: none !important;
+}
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0;
+}
+
+/* This positions the dropdown menu correctly below the widget */
+body > .skiptranslate {
+    top: 50px !important; /* Adjusted for new position */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* This targets the main dropdown panel that appears */
+.goog-te-menu-frame {
+    border-radius: 8px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2) !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+/* This styles the items inside the dropdown (e.g., "English", "Arabic") */
+.goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div {
+    padding: 10px 15px !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: #444 !important;
+    background-color: #ffffff !important;
+}
+
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .page-title-header h1 {
+            font-size: 2.8rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            flex-direction: column;
+            padding: 80px 20px 30px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-item {
+            margin: 10px 0;
+        }
+        
+        .dropdown-menu {
+            position: static;
+            width: 100%;
+            box-shadow: none;
+            margin-top: 10px;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            display: none;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            z-index: 1000;
+        }
+        
+        .mobile-menu-btn.active i::before {
+            content: "\f00d";
+        }
+        
+        .stats-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .stat-item::after {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        
+        .project-card {
+            height: 320px;
+        }
+        
+        .modal-details {
+            grid-template-columns: 1fr;
+        }
+        
+        .modal-header {
+            height: 300px;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+        }
+        
+        .page-title-header {
+            padding: 130px 0 40px;
+        }
+        
+        .page-title-header h1 {
+            font-size: 2.2rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .stats-banner {
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+        }
+        
+        .preloader-logo {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .preloader-logo img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .filter-controls {
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .project-card {
+            height: 280px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+        
+        .hero-content p {
+            font-size: 1rem;
+        }
+        
+        .stats-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .page-title-header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .preloader-logo {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .preloader-logo img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .preloader-progress {
+            width: 160px;
+        }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    /* New animations */
+    @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(5deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+    }
+    
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+</style>
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="preloader-progress">
+            <div class="preloader-progress-bar"></div>
+        </div>
+        <div class="preloader-text">LOADING...</div>
+    </div>
+
+    <!-- NEW: Floating shapes background -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Al-Ahlia Contracting Group Logo">
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">Our Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact Us</a>
+                    </li>
+                    <div id="google_translate_element_container" style="margin-top: 20px;">
+                        <div id="google_translate_element"></div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH BACKGROUND IMAGE -->
+    <section class="hero-section">
+        <div class="hero-background" id="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Our Portfolio</h1>
+            <p>Showcasing excellence in construction and design</p>
+        </div>
+        <div class="hero-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <main>
+        <section class="projects-section">
+            <div class="container">
+                
+                <div class="project-counter" data-aos="fade-up" data-aos-delay="50">
+                    Showcasing <span class="counter-number">160+</span> successfully completed projects
+                </div>
+                
+                
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Project cards will be inserted here by JavaScript -->
+                </div>
+                
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="load-more">
+                        <span class="text">Load More Projects</span>
+                        <span class="loading">
+                            <i class="fas fa-spinner fa-spin"></i> Loading...
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats-banner">
+            <div class="container stats-container">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="stat-number" data-count="160">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="stat-number" data-count="45">0</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label">Awards Won</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="project-modal" id="project-modal">
+        <div class="modal-content">
+            <div class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-header">
+                <img src="" alt="" id="modal-image">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modal-title"></h2>
+                <div class="modal-details" id="modal-details">
+                    <!-- Details will be inserted here by JavaScript -->
+                </div>
+                <div class="modal-description" id="modal-description"></div>
+                <h3>Project Gallery</h3>
+                <div class="modal-gallery" id="modal-gallery">
+                    <!-- Gallery items will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col" data-aos="fade-up">
+                    <h3>Al-Ahlia Contracting</h3>
+                    <p>Building Kuwait's future with excellence since 1978. We deliver quality construction services with integrity and innovation.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/ahlia-contracting-group" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/acgkuwait/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/acgkuwait" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/user/acgkuwait" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Construction Management</a></li>
+                        <li><a href="services.html">Architectural Design</a></li>
+                        <li><a href="services.html">Project Planning</a></li>
+                        <li><a href="services.html">Value Engineering</a></li>
+                        <li><a href="services.html">Residential Construction</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Al-Rai, Kuwait</li>
+                        <li><i class="fas fa-phone-alt"></i> +965 24728023</li>
+                        <li><i class="fas fa-envelope"></i> info@acg.com.kw</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright" data-aos="fade-up">
+                <p>© <span id="copyright-year">2025</span> Al-Ahlia Contracting Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Set current year for copyright
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Project data (in a real scenario, this would come from a database)
+        const projectsData = [
+            {
+                id: 1,
+                title: "Al-Sayer Stores and Offices ",
+                category: "Commercial",
+                image: "images/id1/img1.jpg",
+                year: "2023",
+                location: "Kuwait City",
+                size: "45,000 sq ft",
+                description: "The implementation, completion and maintenance for the new Al-Sayer Stores and Offices in Ardiya Area.",
+                gallery: [
+                    "images/id1/img2.jpg",
+                    "images/id1/img3.jpg",
+                    "images/id1/img4.jpg"
+                ]
+            },
+            {
+                id: 2,
+                title: "Al-Marzouk Commercial Centre",
+                category: "Commercial",
+                image: "images/id2/img1.jpg",
+                year: "2022",
+                location: "Al-Rai",
+                size: "120,000 sq ft",
+                description: "Luxury residential complex with panoramic views, premium amenities, and innovative architectural design. The project features 85 units with various configurations.",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 3,
+                title: "Light Restaurants Complex",
+                category: "Commercial",
+                image: "images/id3/img1.jpg",
+                year: "2021",
+                location: "Hawalli",
+                size: "65,000 sq ft",
+                description: "This project is located in Mahboula-Coastal Strip, it’s a modern luxury concept designed to house 11 Restaurants in one complex. It consists of a basement as a car park and Ground floor (Restaurant Area) with a built-up area of 6,500m2.",
+                gallery: [
+                    "images/id3/img2.jpg",
+                    "images/id3/img3.jpg",
+                    "images/id3/img4.jpg"
+                ]
+            },
+            {
+                id: 4,
+                title: "Luxurious Villa",
+                category: "Residential",
+                image: "images/id4/img1.jpg",
+                year: "2020",
+                location: "Kuwait Coast",
+                size: "200,000 sq ft",
+                description: "A luxurious beachfront resort with 150 rooms, multiple restaurants, swimming pools, and conference facilities. Designed to blend with the natural coastal environment.",
+                gallery: [
+                    "images/id4/img2.jpg",
+                    "images/id4/img3.jpg",
+                    "images/id4/img4.jpg"
+                ]
+            },
+            {
+                id: 5,
+                title: "Levels Restaurants Complex",
+                category: "Hospitality",
+                image: "images/id5/img1.jpg",
+                year: "2019",
+                location: "Shuwaikh",
+                size: "300,000 sq ft",
+                description: "The Project is located in Mahboula-Coastal Strip , it’s a modern luxury concept designed to house 8 restaurants in one complex. It consists of a basement as a car park and main kitchen, and Ground floor (restaurant area and landscape area) and built-up area of 4,900m2.",
+                gallery: [
+                    "images/id5/img2.jpg",
+                    "images/id5/img3.jpg",
+                    "images/id5/img4.jpg"
+                ]
+            },
+            {
+                id: 6,
+                title: "Kuwait Specialized Eye Center",
+                category: "Healthcare",
+                image: "images/id6/img1.jpg",
+                year: "2018",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Construction and completion of Kuwait Specialized Eye Center in Al-Shaab Area.",
+                gallery: [
+                    "images/id6/img2.jpg",
+                    "images/id6/img3.jpg",
+                    "images/id6/img4.jpg"
+                ]
+            },
+            {
+                id: 7,
+                title: "Haya AlMujil Kidney Centre",
+                category: "Healthcare",
+                image: "images/id7/img1.jpg",
+                year: "2013",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Haya AlMujil Kidney Centre.",
+                gallery: [
+                    "images/id7/img2.jpg",
+                    "images/id7/img3.jpg",
+                    "images/id7/img4.jpg"
+                ]
+            },
+            {
+                id: 8,
+                title: "Water Falls Commercial Mall",
+                category: "Commercial",
+                image: "images/id8/img1.jpg",
+                year: "2013",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Built on a plot area of 6500 sq. m. It consists of 2 underground levels car parks, 4 storeys shopping mall & 15 storeys office tower. The total built-up area is around 55000 sq. m. This prestigious $43 million project is constructed with concrete structure and the mall atrium roof is a steel structure covered with fitted high performance glass.",
+                gallery: [
+                    "images/id8/img2.jpg",
+                    "images/id8/img3.jpg",
+                    "images/id8/img4.jpg",
+                    "images/id8/img5.jpg",
+                    "images/id8/img6.jpg"
+                ]
+            },
+            {
+                id: 9,
+                title: "Al Khalid Tower",
+                category: "Commercial",
+                image: "images/id9/img1.jpg",
+                year: "2013",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "This 23 storey office tower was completed ahead of schedule & below budget cost, which was the result of the value engineering introduced by our experienced staff.",
+                gallery: [
+                    "images/id9/img2.jpg",
+                    "images/id9/img3.jpg",
+                    "images/id9/img4.jpg"
+                ]
+            },
+            {
+                id: 10,
+                title: "Al Safat Center",
+                category: "Commercial",
+                image: "images/id10/img1.jpg",
+                year: "2008",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "High rise office building. 34 Office floors + 2 service floors. Fahad Al Salem Street – Kuwait city. Total built-up area around 14500 sq. m expected completion date June 2008 this US.$ 20 million tower is a concrete structure cladded with high performance glazed curtain wall & top quality granite panels . It is equipped with a state of the art electro-mechanical system and the latest smart building installation.",
+                gallery: [
+                    "images/id10/img2.jpg",
+                    "images/id10/img3.jpg",
+                    "images/id10/img4.jpg"
+                ]
+            },
+            {
+                id: 11,
+                title: "Villa Moda",
+                category: "Commercial",
+                image: "images/id11/img1.jpg",
+                year: "2002",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "This project was a great achievement to meet the challenging conditions of a very tight schedule with the highgest quality end product.",
+                gallery: [
+                    "images/id11/img2.jpg",
+                    "images/id11/img3.jpg",
+                    "images/id11/img4.jpg"
+                ]
+            },
+            {
+                id: 12,
+                title: "Mubarak Office Tower",
+                category: "Commercial",
+                image: "images/id12/img1.jpg",
+                year: "2007",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "A challenging project in the heart of kuwait's oldest commercial areas, a prestigious 22 storeys building with two basements in a small plot of 350 square meter, constructed in the midst of the normal trading activities of the souk and without disrupting the traffic around the building site.",
+                gallery: [
+                    "images/id12/img2.jpg",
+                    "images/id12/img3.jpg",
+                    "images/id12/img4.jpg"
+                ]
+            },
+            {
+                id: 13,
+                title: "Al Thuraya Complex",
+                category: "Residential",
+                image: "images/id13/img1.jpg",
+                year: "1999",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Al Thuraya Commercial & Residential Complex. One of the most exclusive malls in Kuwait located at Salem Al Mubarak street. With a very classic European architecture defying today's trend of ultra-modern designs.",
+                gallery: [
+                    "images/id13/img2.jpg",
+                    "images/id13/img3.jpg",
+                    "images/id13/img4.jpg"
+                ]
+            },
+            {
+                id: 14,
+                title: "Al Babtain Nissan Showroom",
+                category: "Commercial",
+                image: "images/id14/img1.jpg",
+                year: "1999",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Al Babtain Nissan Showroom.",
+                gallery: [
+                    "images/id14/img2.jpg",
+                    "images/id14/img3.jpg"
+                ]
+            },
+            {
+                id: 15,
+                title: "Rakan Tower",
+                category: "Commercial",
+                image: "images/id15/img1.jpg",
+                year: "2005",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Rakan Tower is a commercial, state-of-the-art office skyscraper consisting of 32 floors connected by 6 elevators, and providing its clients with a panoramic view of Kuwait City. It is situated on Fahad Al-Salem Street in the heart of Kuwait City. This prestigious 32 storey office tower which stands out as the highest building in Kuwait main commercial street. Total Built up Area around 4000 m2 . The multi-shaded glazed curtain walls for the two main facades resulted in a beautiful change of the colored glass shading . This project was also completed ahead of schedule & below budget cost due to the introduction of value Engineering principle of construction.",
+                gallery: [
+                    "images/id15/img2.jpg",
+                    "images/id15/img3.jpg"
+                ]
+            },
+            {
+                id: 16,
+                title: "Aviation Complex ACK",
+                category: "Educational",
+                image: "images/id16/img1.jpg",
+                year: "2007",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "This project was built within the premises of ACK Campus in Mishref. It consists of : Aircraft Hanger, Aviation Workshop Building, Engineering Building, External Works The challenging part of the construction was to build the Aircraft Hanger on top of a Boeing 737 airplane stationed on site even before we start foundations work. Please refer to the attached pictures that speak whole story .",
+                gallery: [
+                    "images/id16/img2.jpg",
+                    "images/id16/img3.jpg",
+                    "images/id16/img4.jpg"
+                ]
+            },
+            {
+                id: 17,
+                title: "Private Villa",
+                category: "Residential",
+                image: "images/id17/img1.jpg",
+                year: "2007",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Private Villa.",
+                gallery: [
+                    "images/id17/img2.jpg",
+                    "images/id17/img3.jpg",
+                    "images/id17/img4.jpg"
+                ]
+            },
+            {
+                id: 18,
+                title: "Al-Khaled Residential Buildings",
+                category: "Residential",
+                image: "images/id18/img1.jpg",
+                year: "2007",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "This project is located in Hawalli (Al-Muthana Street), consists of two Residential Buildings (3200 m2 Built-up area for each) with 8 floors each. Each Floor consist of three apartments.",
+                gallery: [
+                    "images/id18/img2.jpg",
+                    "images/id18/img3.jpg",
+                    "images/id18/img4.jpg"
+                ]
+            },
+            {
+                id: 19,
+                title: "Private Villa",
+                category: "Residential",
+                image: "images/id19/img1.jpg",
+                year: "2007",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Private Villa",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 20,
+                title: "2 Residential Buildings",
+                category: "Residential",
+                image: "images/id20/img1.jpg",
+                year: "1986",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "2 Residential Bildings At Sharq",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 21,
+                title: "Sheikha Tower",
+                category: "Residential",
+                image: "images/id21/img1.jpg",
+                year: "2007",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Description: This 10.5 million U.S. $ residential tower consists of 19 storeys, ground floor and one basement. Located in the most sought after areas overlooking the Gulf. Two spacious and luxurious apartments each floor. Apartment area 250 m2 .",
+                gallery: [
+                    "images/id21/img2.jpg",
+                    "images/id21/img3.jpg"
+                ]
+            },
+            {
+                id: 22,
+                title: "Sheikha Badria Building",
+                category: "Residential",
+                image: "images/id22/img1.jpg",
+                year: "2007",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Description: This 10.5 million U.S. $ residential tower consists of 19 storeys, ground floor and one basement. Located in the most sought after areas overlooking the Gulf. Two spacious and luxurious apartments each floor. Apartment area 250 m2 .",
+                gallery: [
+                    "images/id22/img2.jpg",
+                    "images/id22/img3.jpg"
+                ]
+            },
+            {
+                id: 23,
+                title: "Apartment Building",
+                category: "Residential",
+                image: "images/id23/img1.jpg",
+                year: "1980",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "8 Stoery Studio Apartment Building",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 24,
+                title: "Luxurious Villa – Dina",
+                category: "Residential",
+                image: "images/id24/img1.jpg",
+                year: "2011",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Luxurious Villa - Dina",
+                gallery: [
+                    "images/id24/img2.jpg",
+                    "images/id24/img3.jpg",
+                    "images/id24/img4.jpg"
+                ]
+            },
+            {
+                id: 25,
+                title: "Chalet",
+                category: "Residential",
+                image: "images/id25/img1.jpg",
+                year: "2000",
+                location: "Al-Shaab",
+                size: "180,000 sq ft",
+                description: "Chalet at Benide",
+                gallery: [
+                    "images/id25/img2.jpg",
+                    "images/id25/img3.jpg",
+                    "images/id25/img4.jpg"
+                ]
+            },
+            {
+                id: 26,
+                title: "Luxurious Villas",
+                category: "Residential",
+                image: "images/id26/img1.jpg",
+                year: "2000",
+                location: "Al Yarmouk",
+                size: "180,000 sq ft",
+                description: "Luxurious Villas at Al Yarmouk",
+                gallery: [
+                    "images/id26/img2.jpg",
+                    "images/id26/img3.jpg",
+                    "images/id26/img4.jpg"
+                ]
+            },
+            {
+                id: 27,
+                title: "Al Munther Tower",
+                category: "Commercial",
+                image: "images/id27/img1.jpg",
+                year: "2001",
+                location: "Al Yarmouk",
+                size: "180,000 sq ft",
+                description: "16 storey office buildings, at Al sour street, Kuwait city. Completed in 2001 built to the highest quality standard & designed by KEO the leading design office in Kuwait .",
+                gallery: [
+                    "images/id27/img2.jpg",
+                    "images/id27/img3.jpg"
+                ]
+            },
+            {
+                id: 28,
+                title: "American College",
+                category: "Educational",
+                image: "images/id28/img1.jpg",
+                year: "2008",
+                location: "Al Yarmouk",
+                size: "180,000 sq ft",
+                description: "This is the first phase of an ambitious project to be build on 150,000 sq.m. plot of land. This phase include two buildings with a total build up area of around 9000 sq. m.",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 29,
+                title: "Landmark",
+                category: "Commercial",
+                image: "images/id29/img1.jpg",
+                year: "2008",
+                location: "Salem Al Mubarak st, Salmiah",
+                size: "180,000 sq ft",
+                description: "Shopping Center at Salmiah State of the art modern designs mall. Mixing concrete with steel & curved glass gave this building an outstanding presence on Salem Al Mubarak street at Salmiah .",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 30,
+                title: "Porsche Showroom",
+                category: "Commercial",
+                image: "images/id30/img1.jpg",
+                year: "2003",
+                location: "Al Rai",
+                size: "180,000 sq ft",
+                description: "Porsche Showroom At Al Rai",
+                gallery: [
+                    "images/id30/img2.jpg",
+                    "images/id30/img3.jpg"
+                ]
+            },
+            {
+                id: 31,
+                title: "Wara Complex",
+                category: "Commercial",
+                image: "images/id31/img1.jpg",
+                year: "1992",
+                location: "Kuwait City",
+                size: "180,000 sq ft",
+                description: "",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 32,
+                title: "Arabic Poetry Diwan",
+                category: "Commercial",
+                image: "images/id32/img1.jpg",
+                year: "1982",
+                location: "Kuwait City",
+                size: "180,000 sq ft",
+                description: "Arabic Poetry Diwan On The 6th Ring Road",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 33,
+                title: "Chemical Lab",
+                category: "Commercial",
+                image: "images/id33/img1.jpg",
+                year: "1994",
+                location: " E.P. Station",
+                size: "180,000 sq ft",
+                description: "New Chemical Lab at E.P. Station",
+                gallery: [
+
+                ]
+            },
+            {
+                id: 34,
+                title: "Child Teaching Center",
+                category: "Educational",
+                image: "images/id34/img1.jpg",
+                year: "2007",
+                location: " E.P. Station",
+                size: "180,000 sq ft",
+                description: "Our company was chosen by this non-profit organization to build this project which is the first at its kind in Kuwait. It is dedicated to teaching of children with special needs for learning . The Project is built on a 7600 m2 of land in a prime residential area and it consists of the main school building, administration building, Gymnasium & external landscaping .",
+                gallery: [
+                    "images/id34/img2.jpg",
+                    "images/id34/img3.jpg",
+                    "images/id34/img4.jpg"
+                ]
+            },
+            {
+                id: 35,
+                title: "21 Storey Commercial Building",
+                category: "Commercial",
+                image: "images/id35/img1.jpg",
+                year: "1984",
+                location: "At Sharq.",
+                size: "180,000 sq ft",
+                description: "Our company was chosen by this non-profit organization to build this project which is the first at its kind in Kuwait. It is dedicated to teaching of children with special needs for learning . The Project is built on a 7600 m2 of land in a prime residential area and it consists of the main school building, administration building, Gymnasium & external landscaping .",
+                gallery: [
+                ]
+            },
+            {
+                id: 36,
+                title: "Mosque at Bayan",
+                category: "Relegious",
+                image: "images/id36/img1.jpg",
+                year: "1982",
+                location: "Bayan.",
+                size: "180,000 sq ft",
+                description: "",
+                gallery: [
+                ]
+            },
+            {
+                id: 37,
+                title: "Sheikha Sabikah Mosque",
+                category: "Relegious",
+                image: "images/id37/img1.jpg",
+                year: "1995",
+                location: "Hawalli.",
+                size: "180,000 sq ft",
+                description: "Sheikha Sabikah Al-Sabah Mosque At Hawalli",
+                gallery: [
+                ]
+            },
+            {
+                id: 38,
+                title: "Qanaie Mosque",
+                category: "Relegious",
+                image: "images/id38/img1.jpg",
+                year: "2001",
+                location: "Sharq.",
+                size: "180,000 sq ft",
+                description: "Qinaei Mosque at Sharq",
+                gallery: [
+                ]
+            },
+            {
+                id: 39,
+                title: "Jaber Al-Ali Mosque",
+                category: "Relegious",
+                image: "images/id39/img1.jpg",
+                year: "2001",
+                location: "South Surra.",
+                size: "180,000 sq ft",
+                description: "Jaber Al-Ali Mosque at South Surra",
+                gallery: [
+                ]
+            },
+            {
+                id: 40,
+                title: "Shereen Mosque",
+                category: "Relegious",
+                image: "images/id40/img1.jpg",
+                year: "2001",
+                location: "Sharq.",
+                size: "180,000 sq ft",
+                description: "Shereen Mosque at Sharq",
+                gallery: [
+                    "images/id40/img2.jpg"
+                ]
+            },
+            {
+                id: 41,
+                title: "Sheikh Duaij AlSalman Mosque",
+                category: "Relegious",
+                image: "images/id41/img1.jpg",
+                year: "2011",
+                location: "Sharq.",
+                size: "180,000 sq ft",
+                description: "Sheikh Duaij Alsalman Alsabah Mosque",
+                gallery: [
+                    "images/id41/img2.jpg",
+                    "images/id41/img3.jpg",
+                    "images/id41/img4.jpg"
+                ]
+            },
+            {
+                id: 42,
+                title: "Villa at Abu Al Hasaniah",
+                category: "Residential",
+                image: "images/id42/img1.jpg",
+                year: "2003",
+                location: "Abu Al Hasaniah",
+                size: "180,000 sq ft",
+                description: "Private Villa",
+                gallery: [
+                    "images/id42/img2.jpg",
+                    "images/id42/img3.jpg",
+                    "images/id42/img4.jpg"
+                ]
+            },
+            {
+                id: 43,
+                title: "Residential Compound",
+                category: "Residential",
+                image: "images/id43/img1.jpg",
+                year: "2003",
+                location: "Abu Al Hasaniah",
+                size: "180,000 sq ft",
+                description: "Residential Compound of 21 Villas",
+                gallery: [
+                    "images/id43/img2.jpg",
+                    "images/id43/img3.jpg",
+                    "images/id43/img4.jpg"
+                ]
+            },
+            {
+                id: 44,
+                title: "Residential Complex",
+                category: "Residential",
+                image: "images/id44/img1.jpg",
+                year: "1998",
+                location: "Al-Messelah",
+                size: "180,000 sq ft",
+                description: "Residential Complex At Al-Messelah",
+                gallery: [
+                    "images/id44/img2.jpg"
+                ]
+            },
+            {
+                id: 45,
+                title: "Private Villa at Shuwaikh",
+                category: "Residential",
+                image: "images/id45/img1.jpg",
+                year: "2004",
+                location: "Shuwaikh",
+                size: "180,000 sq ft",
+                description: "Private Villa",
+                gallery: [
+                    "images/id45/img2.jpg",
+                    "images/id45/img3.jpg"
+                ]
+            },
+            {
+                id: 46,
+                title: "Nadia Tower",
+                category: "Residential",
+                image: "images/id46/img1.jpg",
+                year: "2008",
+                location: "Salmiah Gulf street",
+                size: "180,000 sq ft",
+                description: "Located in Salmiah Gulf street, with a panoramic view of the Arabian Gulf. This 10 million U.S. $ residential building consists of 19 storeys, Mezzanine, ground floor & two under ground parking levels. Each flat occupies the whole floor & is finished with the most expensive materials imported purposely from Europe. This tower is built over 16 m. deep piled foundations.",
+                gallery: [
+                    "images/id46/img2.jpg"
+                ]
+            },
+
+        ];
+
+        // For demonstration, duplicate the projects to simulate 160+ projects
+        const allProjects = [];
+ { // 6 projects * 27 = 162 projects
+            projectsData.forEach(project => {
+                const newProject = {...project, id: allProjects.length + 1};
+                allProjects.push(newProject);
+            });
+        }
+
+        // Variables for pagination
+        let currentPage = 1;
+        const projectsPerPage = 12;
+        let filteredProjects = [...allProjects];
+        let currentFilter = 'all';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileMenuBtn.classList.toggle('active');
+                });
+            }
+            
+            renderProjects();
+            setupFilterButtons();
+            setupLoadMoreButton();
+            setupModal();
+            animateCounters();
+            stickyHeader();
+            backToTop();
+            setupHeroParallax();
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+            
+            // Smooth scroll to projects section
+            document.querySelector('.hero-scroll-indicator').addEventListener('click', function() {
+                document.querySelector('.projects-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+        
+        // Setup hero parallax effect
+        function setupHeroParallax() {
+            const heroBg = document.getElementById('hero-background');
+            
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                heroBg.style.transform = 'translate3d(0px, ' + rate + 'px, 0px)';
+            });
+        }
+        
+        // Render projects based on current page and filter
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            
+            const startIndex = (currentPage - 1) * projectsPerPage;
+            const endIndex = startIndex + projectsPerPage;
+            const projectsToRender = filteredProjects.slice(startIndex, endIndex);
+            
+            // If it's the first page, clear the grid. Otherwise, append.
+            if (currentPage === 1) {
+                grid.innerHTML = '';
+            }
+
+            projectsToRender.forEach(project => {
+                const projectCard = createProjectCard(project);
+                grid.appendChild(projectCard);
+            });
+            
+            // Re-initialize AOS for newly added elements
+            AOS.refresh();
+
+            // Update counter
+            document.querySelector('.counter-number').textContent = filteredProjects.length;
+            
+            // Hide load more button if all projects are shown
+            const loadMoreBtn = document.getElementById('load-more');
+            if (endIndex >= filteredProjects.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-flex';
+            }
+        }
+
+        // Create a project card element
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = `project-card ${project.category}`;
+            card.dataset.category = project.category;
+            card.dataset.aos = 'fade-up';
+            
+            card.innerHTML = `
+                <img src="${project.image}" alt="${project.title}" class="project-image">
+                <div class="project-overlay">
+                    <span class="project-category">${project.category}</span>
+                    <h3 class="project-title">${project.title}</h3>
+                    <div class="project-meta">
+                        <span>${project.year}</span>
+                        <span>${project.location}</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <div class="action-btn view-project" data-id="${project.id}">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <a href="${project.image}" data-lightbox="project-${project.id}" data-title="${project.title}" class="action-btn">
+                        <i class="fas fa-expand"></i>
+                    </a>
+                </div>
+            `;
+            
+            card.querySelector('.view-project').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const projectId = parseInt(this.dataset.id);
+                openProjectModal(projectId);
+            });
+            
+            return card;
+        }
+
+        // Setup filter buttons
+        function setupFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    
+                    if (currentFilter === 'all') {
+                        filteredProjects = [...allProjects];
+                    } else {
+                        filteredProjects = allProjects.filter(project => project.category === currentFilter);
+                    }
+                    
+                    currentPage = 1;
+                    renderProjects();
+                });
+            });
+        }
+
+        // Setup load more button
+        function setupLoadMoreButton() {
+            const loadMoreBtn = document.getElementById('load-more');
+            
+            loadMoreBtn.addEventListener('click', function() {
+                this.classList.add('loading');
+                
+                setTimeout(() => {
+                    currentPage++;
+                    renderProjects();
+                    this.classList.remove('loading');
+                }, 800);
+            });
+        }
+
+        // Setup modal functionality
+        function setupModal() {
+            const modal = document.getElementById('project-modal');
+            const closeBtn = document.getElementById('modal-close');
+            
+            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        // Open project modal with details
+        function openProjectModal(projectId) {
+            const project = allProjects.find(p => p.id === projectId);
+            if (!project) return;
+            
+            document.getElementById('modal-image').src = project.image;
+            document.getElementById('modal-image').alt = project.title;
+            document.getElementById('modal-title').textContent = project.title;
+            
+            document.getElementById('modal-details').innerHTML = `
+                <div class="detail-item"><span class="detail-label">Category</span><span class="detail-value">${project.category}</span></div>
+                <div class="detail-item"><span class="detail-label">Year</span><span class="detail-value">${project.year}</span></div>
+                <div class="detail-item"><span class="detail-label">Location</span><span class="detail-value">${project.location}</span></div>
+                <div class="detail-item"><span class="detail-label">Size</span><span class="detail-value">${project.size}</span></div>
+            `;
+            
+            document.getElementById('modal-description').textContent = project.description;
+            
+            const galleryContainer = document.getElementById('modal-gallery');
+            galleryContainer.innerHTML = '';
+            project.gallery.forEach(image => {
+                galleryContainer.innerHTML += `<a href="${image}" data-lightbox="project-gallery-${project.id}" data-title="${project.title}" class="gallery-item"><img src="${image}" alt="${project.title}"></a>`;
+            });
+            
+            document.getElementById('project-modal').classList.add('active');
+        }
+
+        // Animate counters in stats section
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-count');
+                        const updateCount = () => {
+                            const count = +counter.innerText;
+                            const inc = target / speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc);
+                                setTimeout(updateCount, 10);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        obs.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Sticky header
+        function stickyHeader() {
+            const header = document.getElementById('header');
+            if (!header) return;
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 50) {
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
+            });
+        }
+        
+        // Back to top button
+        function backToTop() {
+            const backToTopBtn = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Enhanced Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            const progressBar = document.querySelector('.preloader-progress-bar');
+            
+            if(preloader) {
+                // Simulate loading progress
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 15;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(interval);
+                        
+                        setTimeout(() => {
+                            preloader.style.opacity = '0';
+                            setTimeout(() => preloader.style.display = 'none', 500);
+                        }, 500);
+                    }
+                    progressBar.style.width = progress + '%';
+                }, 200);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

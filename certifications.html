@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Ahlia Contracting Group - Certifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --primary: #8B4513; /* Saddle brown */
+            --secondary: #D2B48C; /* Tan */
+            --dark: #441102; /* Dark maroon */
+            --light: #F5F5F0; /* Beige/off-white */
+            --accent: #CD853F; /* Peru */
+            --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease;
+        }
+
+        /* Header */
+        #header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(245, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-slow);
+            border-bottom: 1px solid rgba(68, 17, 2, 0.1);
+        }
+
+        #header.scrolled {
+            padding: 0.8rem 5%;
+            box-shadow: 0 2px 10px rgba(68, 17, 2, 0.1);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-menu { display: flex; list-style: none; }
+        .nav-item { margin-left: 2rem; position: relative; }
+        .nav-link { color: var(--dark); text-decoration: none; font-weight: 500; transition: var(--transition-fast); position: relative; padding: 0.5rem 0; }
+        .nav-link:after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.4s ease; }
+        .nav-link:hover:after { width: 100%; }
+        .mobile-menu-btn { display: none; background: transparent; border: none; color: var(--dark); font-size: 1.8rem; cursor: pointer; }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(68, 17, 2, 0.7)), 
+                        url('https://images.pexels.com/photos-2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+             position: relative;
+             z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Breadcrumbs Styling */
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+            background-color: rgba(210, 180, 140, 0.2);
+            border-radius: 30px;
+            display: inline-flex;
+            padding: 10px 25px;
+            backdrop-filter: blur(5px);
+        }
+        .breadcrumb-item { font-size: 0.9rem; }
+        .breadcrumb-item a { color: rgba(255, 255, 255, 0.9); text-decoration: none; transition: var(--transition-fast); }
+        .breadcrumb-item a:hover { color: var(--secondary); }
+        .breadcrumb-item.active { color: #ffffff; }
+        .breadcrumb-item + .breadcrumb-item::before { content: '›'; margin: 0 12px; color: rgba(255, 255, 255, 0.7); }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 5rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .certificates-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .certificate-panel {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .certificate-panel.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .certificate-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(68, 17, 2, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(139, 69, 19, 0.1);
+        }
+        
+        .certificate-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(68, 17, 2, 0.15);
+        }
+
+        .certificate-img {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate-img .icon-bg {
+            width: 100%; 
+            height: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 4rem;
+            transition: transform 0.4s ease;
+        }
+        
+        .certificate-content:hover .icon-bg {
+            transform: scale(1.1);
+        }
+
+        .certificate-details {
+            width: 50%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .certificate-details h3 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--primary); }
+        .certificate-details p { color: #666; margin-bottom: 2rem; line-height: 1.7; }
+        .certificate-details .date { color: var(--accent); font-weight: 600; display: flex; align-items: center; }
+        .certificate-details .date i { margin-right: 0.5rem; }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            padding: 100px 5%;
+            color: var(--light);
+            text-align: center;
+            position: relative;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="none" width="200" height="200"/><path fill="%23FFFFFF" fill-opacity="0.05" d="M0,100 Q50,150 100,100 Q150,50 200,100 L200,200 L0,200 Z"/></svg>') no-repeat top;
+            background-size: cover;
+        }
+
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 4rem; position: relative; }
+        .stat-box { padding: 2.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); position: relative; overflow: hidden; transition: var(--transition-slow); }
+        .stat-box:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.15); }
+        .stat-box i { font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--light); }
+        .stat-box h3 { font-size: 3.5rem; margin-bottom: 0.5rem; font-weight: 800; }
+
+        /* Footer */
+        footer { background: var(--dark); color: var(--light); padding: 5rem 5% 2rem; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .footer-col h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--secondary); }
+        .footer-col p { margin-bottom: 1.5rem; line-height: 1.7; color: rgba(245, 245, 240, 0.8); }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(210, 180, 140, 0.2); color: var(--secondary); font-size: 1rem; transition: var(--transition-fast); }
+        .social-links a:hover { background: var(--secondary); color: var(--dark); transform: translateY(-5px); }
+        .footer-links { list-style: none; padding-left: 0;}
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: rgba(245, 245, 240, 0.8); text-decoration: none; transition: var(--transition-fast); }
+        .footer-links a:hover { color: var(--secondary); }
+        .footer-links i { margin-right: 0.5rem; color: var(--secondary); }
+        .copyright { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(210, 180, 140, 0.3); text-align: center; color: var(--secondary); }
+
+        /* Animations */
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+        
+        /* New decorative elements */
+        .decorative-element {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.05;
+        }
+        
+        .deco-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 15rem;
+            color: var(--primary);
+        }
+        
+        .deco-2 {
+            bottom: 10%;
+            right: 5%;
+            font-size: 12rem;
+            color: var(--accent);
+            transform: rotate(25deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .certificate-content { flex-direction: column; height: auto; }
+            .certificate-img, .certificate-details { width: 100%; }
+            .certificate-img { height: 300px; }
+            .decorative-element { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2.5rem; }
+            .certificate-details { padding: 2rem; }
+            .stat-box h3 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div style="color: var(--dark); text-align: center;">
+            <i class="fas fa-certificate" style="font-size: 60px; margin-bottom: 20px; color: var(--primary);"></i>
+            <p>Loading Certifications...</p>
+        </div>
+    </div>
+
+    <header id="header">
+        <a href="#" class="logo">
+            <div style="height: 50px; width: 150px; background: var(--primary); display: flex; align-items: center; justify-content: center; color: var(--light); font-weight: bold;">AL-AHLIA</div>
+        </a>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 data-aos="fade-up">Our Certifications</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Recognized excellence and commitment to quality in the construction industry.</p>
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="400">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="about.html">About Us</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Certifications</li>
+                    </ol>
+                </nav>
+            </div>
+            <a href="#certifications" class="scroll-indicator"><i class="fas fa-chevron-down"></i></a>
+        </section>
+
+        <section class="certifications" id="certifications">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Quality Accreditations</h2>
+                <i class="fas fa-certificate decorative-element deco-1"></i>
+                <i class="fas fa-award decorative-element deco-2"></i>
+                
+                <div class="certificates-container">
+                    <div class="certificate-panel">
+                        <div class="certificate-content">
+                            <div class="certificate-img">
+                                <div class="icon-bg" style="background: #F5E9DE; color: var(--primary);"><i class="fas fa-award"></i></div>
+                            </div>
+                            <div class="certificate-details">
+                                <h3>ISO 9001:2015</h3>
+                                <p>Quality Management System certification demonstrating our ability to consistently provide products that meet customer and regulatory requirements.</p>
+                                <p class="date"><i class="far fa-calendar-alt"></i> Issued: June 2020 | Valid until: June 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-panel">
+                        <div class="certificate-content">
+                            <div class="certificate-details">
+                                <h3>ISO 27001:2013</h3>
+                                <p>Information Security Management certification demonstrating our commitment to protecting client data and information assets.</p>
+                                <p class="date"><i class="far fa-calendar-alt"></i> Issued: March 2021 | Valid until: March 2024</p>
+                            </div>
+                            <div class="certificate-img">
+                                <div class="icon-bg" style="background: #F0E6D8; color: var(--accent);"><i class="fas fa-shield-alt"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-panel">
+                        <div class="certificate-content">
+                            <div class="certificate-img">
+                                <div class="icon-bg" style="background: #E8E2D6; color: var(--dark);"><i class="fas fa-leaf"></i></div>
+                            </div>
+                            <div class="certificate-details">
+                                <h3>ISO 14001:2015</h3>
+                                <p>Environmental Management System certification, showcasing our commitment to sustainable practices and reducing environmental impact.</p>
+                                <p class="date"><i class="far fa-calendar-alt"></i> Issued: Sep 2021 | Valid until: Sep 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-panel">
+                        <div class="certificate-content">
+                            <div class="certificate-details">
+                                <h3>Industry Excellence Award</h3>
+                                <p>Recognized as industry leaders in innovation and customer satisfaction for three consecutive years. This award reflects our dedication to excellence.</p>
+                                <p class="date"><i class="far fa-calendar-alt"></i> Issued: Dec 2021 | Valid: Perpetual</p>
+                            </div>
+                            <div class="certificate-img">
+                                <div class="icon-bg" style="background: #E5DED1; color: var(--primary);"><i class="fas fa-trophy"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats" id="stats">
+            <div class="container">
+                <div class="stats-container">
+                    <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-certificate"></i>
+                        <h3><span data-count="16">0</span>+</h3>
+                        <p>International Certifications</p>
+                    </div>
+                    <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3><span data-count="12">0</span>+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
+                    <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3><span data-count="40">0</span>+</h3>
+                        <p>Countries Served</p>
+                    </div>
+                    <div class="stat-box" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-users"></i>
+                        <h3><span data-count="500">0</span>+</h3>
+                        <p>Certified Professionals</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col" data-aos="fade-up">
+                    <h3>Al-Ahlia Contracting</h3>
+                    <p>Building Kuwait's future with excellence. We deliver quality construction services with integrity and innovation.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Al-Rai, Kuwait</li>
+                        <li><i class="fas fa-phone-alt"></i> +965 24728023</li>
+                        <li><i class="fas fa-envelope"></i> info@acg.com.kw</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© <span id="copyright-year">2025</span> Al-Ahlia Contracting Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+
+            // Set copyright year
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+            // Preloader
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                window.addEventListener('load', function() {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => { preloader.style.display = 'none'; }, 800);
+                });
+            }
+
+            // Navbar scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // GSAP Vertical Scrolling for Certifications
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.utils.toArray('.certificate-panel').forEach(panel => {
+                gsap.to(panel, {
+                    scrollTrigger: {
+                        trigger: panel,
+                        start: 'top 80%',
+                        toggleClass: 'is-visible',
+                        once: true
+                    }
+                });
+            });
+
+            // Animated counter for stats
+            function animateCounter(el) {
+                const target = +el.getAttribute('data-count');
+                let count = 0;
+                const duration = 2000; // 2 seconds
+                const stepTime = Math.abs(Math.floor(duration / target));
+
+                const timer = setInterval(() => {
+                    count++;
+                    el.innerText = count;
+                    if (count === target) {
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+            }
+
+            const statsSection = document.querySelector('.stats');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.stats h3 span');
+                        counters.forEach(counter => {
+                            animateCounter(counter);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

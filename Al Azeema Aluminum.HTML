@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Azeema Aluminum | Premium Aluminum Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 1. ROOT & VARIABLE DEFINITIONS - Enhanced color scheme */
+        :root {
+            --primary: #8B4513;
+            --primary-light: #a85e2d;
+            --secondary: #D2B48C;
+            --secondary-light: #e4cfb1;
+            --dark: #441102;
+            --dark-light: #5c2a1a;
+            --light: #F5F5F0;
+            --accent: #CD853F;
+            --accent-gold: #d4af37;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 15px 40px rgba(0,0,0,0.2);
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--accent) 0%, var(--accent-gold) 100%);
+        }
+
+        /* 2. GLOBAL RESETS & BASE STYLES - Enhanced with better typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            scroll-padding-top: 90px; /* Offset for fixed header */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* 3. TYPOGRAPHY & REUSABLE ELEMENTS - Enhanced */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: var(--shadow);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--gradient-gold);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline::before {
+            background: var(--gradient-primary);
+        }
+
+        .btn-outline:hover {
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Decorative elements */
+        .decorative-line {
+            height: 4px;
+            width: 80px;
+            background: var(--gradient-primary);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* 4. HEADER & NAVIGATION - Enhanced with better styling */
+        /* ===== Corrected Header & Logo Styles ===== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        /* This class can be added with JavaScript when the user scrolls */
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0; /* Adjusted padding for better alignment */
+            transition: padding 0.3s ease;
+        }
+
+        header.scrolled .nav-container {
+            padding: 10px 0; /* Shrink padding on scroll */
+        }
+
+        /* --- VALID IMAGE LOGO STYLES --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 85px; /* Fixed height for logo container */
+        }
+
+        .logo img {
+            height: 110px; /* Controls the height of your logo */
+            width: auto;  /* Maintains the aspect ratio */
+            display: block;
+            transition: height 0.3s ease; /* Smooth transition for size change */
+        }
+
+        /* Makes the logo slightly smaller when the user scrolls down */
+        header.scrolled .logo img {
+            height: 50px; 
+        }
+
+        /* ===== Navigation Menu Styles ===== */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            z-index: 100;
+            padding: 10px 0;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(10px);
+        }
+        
+        .dropdown-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(0,0,0,0.02);
+            padding-left: 25px;
+            color: var(--primary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        #google_translate_element_container {
+             margin-left: 30px;
+        }
+
+        /* 5. SECTIONS & CONTENT STYLES - Enhanced with better visuals */
+        section {
+            min-height: 100vh;
+            padding: 100px 0;
+            scroll-snap-align: start;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero Section - Enhanced with particles effect */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            color: var(--secondary);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--primary);
+            border-radius: 10px;
+            top: 15px;
+            left: 15px;
+            z-index: -1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Products Section */
+        #products {
+            background: linear-gradient(to bottom, var(--secondary-light), var(--light));
+            position: relative;
+            overflow: hidden;
+        }
+
+        #products::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+        }
+
+        #products::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-gold);
+            opacity: 0.05;
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-image::after {
+            opacity: 1;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* Systems Section */
+        .systems-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            padding: 14px 30px;
+            background-color: var(--secondary-light);
+            color: var(--dark);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+        }
+
+        .tab-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active { display: block; }
+
+        .system-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .system-text, .system-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .system-image {
+            position: relative;
+        }
+        
+        .system-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 10px;
+            top: 15px;
+            left: 15px;
+            z-index: -1;
+        }
+        
+        .system-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+        
+        .system-image:hover img {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .contact-detail {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-detail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-detail:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .contact-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-detail div strong {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 18px;
+        }
+        
+        .contact-detail a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-detail a:hover {
+            color: var(--primary);
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .map-container:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* 6. FOOTER - Enhanced */
+        footer {
+            background: linear-gradient(to right, var(--dark) 0%, var(--dark-light) 100%);
+            color: white;
+            padding: 70px 0 20px;
+            scroll-snap-align: start;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-gold);
+            opacity: 0.03;
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-col h3 {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 3px;
+        }
+        
+        .footer-col p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links li:hover {
+            transform: translateX(5px);
+        }
+        
+        .footer-links li i {
+            color: var(--secondary);
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-gold);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+        
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 7. ANIMATIONS - Enhanced */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Particle.js container */
+        .particles-js-canvas-el {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* 8. RESPONSIVE DESIGN - Enhanced */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background-color: white;
+                width: 80%;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 40px;
+                transition: right 0.5s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                width: 100%;
+                text-align: center;
+                display: none;
+                margin-top: 10px;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: block;
+                transform: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+             #google_translate_element_container {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 80%;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .about-content, .system-content {
+                flex-direction: column;
+            }
+            
+            .about-image::before, .system-image::before {
+                display: none;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .systems-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* New styles for updated navigation and footer */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            padding: 15px 0;
+        }
+
+        .main-nav.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            padding: 10px 0;
+        }
+
+        .nav-logo {
+            height: 55px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav.scrolled .nav-logo {
+            height: 45px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(122, 62, 18, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 12px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 22px !important;
+            border-radius: 50px;
+            margin-left: 15px !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(122, 62, 18, 0.2);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* Updated footer styles */
+        .footer-logo {
+            max-width: 200px;
+            margin-bottom: 25px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+        
+        .footer p {
+            margin-bottom: 25px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav li {
+            margin: 0 12px;
+        }
+
+        .footer-nav a {
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .footer-nav a:hover::after {
+            width: 100%;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+
+        .back-btn:hover::before {
+            transform: translateX(0);
+        }
+
+        .back-btn i {
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-btn:hover i {
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 40px 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-nav li {
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Updated Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/Azeema Logo.jpg" alt="Al Azeema Aluminum Logo" class="nav-logo">
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#contact" class="nav-cta">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div id="particles-js"></div>
+        <div class="container hero-content">
+            <h1>Premium Aluminum Solutions Since 1988</h1>
+            <p>Experience the perfect marriage between technique and aesthetic with our German-engineered aluminum systems</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn">Explore Products</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Quality at the top of our priorities</p>
+                <div class="decorative-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h3>Leading Aluminum Solutions Provider</h3>
+                    <p>Al Azeema Aluminum started its activity in 1988 under the license name "Meshaan Aluminium", during which time, Sykon Design Aluminium system from Germany was introduced to the market controlled and supervised by specialized German Technical Team.</p>
+                    <p>As an economical alternative, Syncro Design Aluminium system from Italy as extruded by Balexco of Bahrain, is offered to cater to the market's growing demand.</p>
+                    <p>Quality is an integral part of Company's strategy lying at the top of its working priorities. Quality assurance program is implemented by conducting inspection at predetermined manufacturing stages and full inspection on site installation.</p>
+                </div>
+                <div class="about-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="A team putting their hands together, symbolizing teamwork.">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Widespread range offering the best quality, design and performance</p>
+                <div class="decorative-line"></div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card animate-on-scroll">
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1604964435787-2cef5bba4862?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Modern aluminum doors and windows"></div>
+                    <div class="product-info">
+                        <h3>Doors and Windows</h3>
+                        <p>With thermal break and without thermal break options for added insulation where specification demands.</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll">
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1628744404730-5e143358539b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sleek roller shutters on a building exterior"></div>
+                    <div class="product-info">
+                        <h3>Roller Shutters & Flyscreens</h3>
+                        <p>Superior protection and insect screening solutions with elegant design and functionality.</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll">
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="A glass curtain wall on a modern office building"></div>
+                    <div class="product-info">
+                        <h3>Curtain Walls</h3>
+                        <p>Modern curtain wall systems meeting the required inertia for particular building designs.</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll">
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1618220179428-227bab4b2c3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="An elegant glass skylight in a ceiling"></div>
+                    <div class="product-info">
+                        <h3>Skylights</h3>
+                        <p>Natural lighting solutions with superior thermal performance and weather resistance.</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll">
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1621684018025-43e42e216154?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="A sturdy and stylish aluminum handrail"></div>
+                    <div class="product-info">
+                        <h3>Handrails</h3>
+                        <p>Elegant and sturdy handrail systems combining safety with aesthetic appeal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Systems</h2>
+                <p>Engineered for excellence and performance</p>
+                <div class="decorative-line"></div>
+            </div>
+            <div class="systems-tabs">
+                <button class="tab-btn active" data-tab="sykon">Sykon System</button>
+                <button class="tab-btn" data-tab="balexco">Balexco Profile</button>
+                <button class="tab-btn" data-tab="thermal">Thermal Break</button>
+            </div>
+            <div class="tab-content active" id="sykon">
+                <div class="system-content">
+                    <div class="system-text animate-on-scroll">
+                        <h3>Sykon Aluminum System</h3>
+                        <p>Sykon system is fully engineered to ensure absolute compliance with the most rigorous DIN standards. Having brilliantly succeeded major tests for air, water and wind permeability according to standards as well as high ranking thermal insulation coefficients, Sykon section is the best option in terms of quality performance and energy saving.</p>
+                        <p>Thanks to the application of special technologies and an accurate design selection, Sykon systems are able to combine a perfect marriage between technique and aesthetic.</p>
+                    </div>
+                    <div class="system-image animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1603380388725-ced3c24642dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Detailed view of a high-performance aluminum window frame">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="balexco">
+                <div class="system-content">
+                    <div class="system-text animate-on-scroll">
+                        <h3>Balexco Syncro System</h3>
+                        <p>Balexco Syncro 45 (without thermal break) and Syncro 50 (with thermal break) is being utilized to offer a superior and aesthetically pleasing product to highly demanding customers at very reasonable cost.</p>
+                        <p>This system provides an economical alternative without compromising on quality and performance, catering to the market's growing demand for premium aluminum solutions.</p>
+                    </div>
+                    <div class="system-image animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392d46?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Aluminum profiles stacked neatly">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="thermal">
+                <div class="system-content">
+                    <div class="system-text animate-on-scroll">
+                        <h3>Thermal Break Technology</h3>
+                        <p>Thermal Break system is realized by connecting two Aluminium profiles with the insertion of insulated polyamide (PA) strips. By mechanical rolling, the two knurled aluminum profiles are wedged to the insulated PA strips guaranteeing the maximum strength and an excellent structural stability.</p>
+                        <p>Thanks to this particular application both thermal and acoustic insulation is improved and above all, the phenomenon of condensation is highly reduced.</p>
+                    </div>
+                    <div class="system-image animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1602780459953-6f46bd6c0138?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cross-section of a thermal break aluminum profile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team</p>
+                <div class="decorative-line"></div>
+            </div>
+            <div class="contact-info animate-on-scroll">
+                <div class="contact-grid">
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <strong>Phone</strong>
+                            <a href="tel:+96524715827">+965 24715827</a><br>
+                            <a href="tel:+96524715926">+965 24715926</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-fax"></i></div>
+                        <div><strong>Fax</strong>+965 24715904</div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:alazeema@acg.com.kw">alazeema@acg.com.kw</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><strong>Address</strong>Subhan, Kuwait</div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container animate-on-scroll">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55719.30944640924!2d47.96163889417973!3d29.263381442111394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf777e4b60586b%3A0x63937a655938f855!2sSubhan%2C%20Kuwait!5e0!3m2!1sen!2skw!4v1693729864292!5m2!1sen!2skw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updated Footer -->
+    <footer>
+        <div class="container">
+                
+                <a href="index.html#sister-companies" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
+                
+                <div class="copyright">
+                    &copy; <span id="copyright-year"></span> Al Azeema Aluminum. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Particles.js for background effect -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when a nav link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Header scroll effect
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        });
+
+        // Systems Section Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Animate on Scroll
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(el => observer.observe(el));
+        
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
+            }
+        });
+    </script>
+</body>
+</html>
