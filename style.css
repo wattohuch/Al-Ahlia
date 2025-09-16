@@ -1936,32 +1936,45 @@ body > .skiptranslate {
 }
 @media (max-width: 991.98px) {
 
-    /* --- 1. The Main Container Fix --- */
-    /* This is the most important part. It tells the container 
-       to be 100% wide on mobile and adds balanced padding. */
+    /* --- 1. Universal Container Fix --- */
+    /* This fixes the main padding issue for the entire site. */
     .container {
         width: 100% !important;
         max-width: 100% !important;
-        padding-left: 25px !important;
-        padding-right: 25px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
-    /* --- 2. Header and Navigation Adjustments --- */
+    /* --- 2. Header and Navigation --- */
     .header-container {
-        padding-left: 25px !important;
-        padding-right: 25px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
-    /* --- 3. Section-Specific Tweaks for Better Spacing --- */
-    
-    /* About Section */
+    /* --- 3. Section Layout Fixes --- */
+
+    /* [FIX] About Us Section */
     .about-content {
-        flex-direction: column;
+        flex-direction: column; /* Stacks text and image vertically */
+        gap: 30px;
     }
     .about-text, .about-image {
         width: 100%;
-        max-width: 100%;
-        margin-bottom: 20px;
+        max-width: 100%; /* Allows image to be full width */
+        flex: 1 1 100%;   /* Resets desktop sizing */
+    }
+
+    /* [FIX] Contact Us Section */
+    .contact-content {
+        flex-direction: column; /* Stacks form and info vertically */
+        gap: 0; /* We'll use margin for better control */
+    }
+    .contact-form-container {
+        margin-bottom: 40px; /* Creates space between form and info */
+    }
+    .contact-form-container, .contact-info {
+        width: 100%;
+        flex: 1 1 100%; /* Resets desktop sizing */
     }
 
     /* Landmark Projects Section */
@@ -1980,7 +1993,7 @@ body > .skiptranslate {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    
+
     /* Footer */
     .footer-content {
         flex-direction: column;
