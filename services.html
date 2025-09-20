@@ -923,30 +923,31 @@
         }
         
         /* Responsive Design */
+        /* All the existing CSS remains exactly the same except for header and footer */
+
+        /* Enhanced Mobile Responsiveness */
         @media (max-width: 1200px) {
-            .services-hexagon-container {
-                grid-template-columns: repeat(3, 1fr);
+            .container {
+                padding: 0 20px;
             }
         }
         
         @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 80%;
+                max-width: 300px;
                 height: 100vh;
                 background: white;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                padding: 100px 20px 30px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
                 transition: all 0.5s ease;
                 z-index: 999;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
             }
             
             .nav-menu.active {
@@ -955,11 +956,15 @@
             
             .nav-item {
                 margin: 15px 0;
+                width: 100%;
+                text-align: center;
             }
             
             .nav-link {
-                color: var(--dark);
-                font-size: 1.2rem;
+                display: block;
+                padding: 15px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
             }
             
             .dropdown-menu {
@@ -984,10 +989,25 @@
             
             .mobile-menu-btn {
                 display: block;
+                z-index: 1000;
             }
             
-            .hero h1 {
-                font-size: 2.8rem;
+            .mobile-menu-btn.active i::before {
+                content: "\f00d";
+            }
+            
+            #google_translate_element_container {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 15px 0;
+                width: 100%;
+                justify-content: center;
+                order: -1;
+            }
+            
+            .header-container {
+                flex-wrap: wrap;
             }
             
             .services-hexagon-container {
@@ -1030,6 +1050,23 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1062,8 +1099,110 @@
             }
             
             .nav-menu {
-                width: 85%;
+                width: 100%;
+                max-width: none;
             }
+            
+            .services {
+                padding: 60px 0;
+            }
+            
+            .about {
+                padding: 60px 0;
+            }
+            
+            .stats {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-hexagon h3 {
+                font-size: 1.2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-item {
+                padding: 15px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+            
+            #header.scrolled .logo img {
+                height: 40px;
+            }
+            
+            .header-container {
+                padding: 10px 0;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .service-hexagon {
+                padding: 20px;
+            }
+            
+            .service-hexagon-icon {
+                font-size: 2.5rem;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .modal-header h3 {
+                font-size: 1.4rem;
+            }
+            
+            .modal-icon {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Prevent horizontal scrolling */
+        html, body {
+            overflow-x: hidden;
+        }
+        
+        /* Improve touch targets */
+        .nav-link, .dropdown-item a, .footer-links a, 
+        .social-links a, .btn, .service-hexagon,
+        .contact-tab, .submit-btn {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-hexagon {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -1825,4 +1964,5 @@
         });
     </script>
 </body>
+
 </html>
