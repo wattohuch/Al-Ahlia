@@ -161,6 +161,8 @@
             font-size: 24px;
             color: var(--dark);
             cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
         }
         
         /* Contact Page Footer */
@@ -467,10 +469,96 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        /* Responsive Design */
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .contact-nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 80px 20px 30px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: all 0.5s ease;
+                z-index: 999;
+            }
+            
+            .contact-nav-menu.active {
+                right: 0;
+            }
+            
+            .contact-nav-item {
+                margin: 15px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .contact-nav-link {
+                display: block;
+                padding: 15px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .contact-dropdown-menu {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                box-shadow: none;
+                background: rgba(0,0,0,0.03);
+                margin-top: 10px;
+            }
+            
+            .contact-dropdown-menu:before {
+                display: none;
+            }
+            
+            .contact-nav-item:hover .contact-dropdown-menu {
+                display: block;
+            }
+            
+            .contact-mobile-menu-btn {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .contact-mobile-menu-btn.active i::before {
+                content: "\f00d";
+            }
+            
+            #google_translate_element_container {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 15px 0;
+                width: 100%;
+                justify-content: center;
+                order: -1;
+            }
+            
+            .contact-header-container {
+                flex-wrap: wrap;
+            }
+        }
+        
         @media (max-width: 768px) {
             .page-header {
                 height: 50vh;
+                margin-top: 70px;
             }
             
             .page-header h1 {
@@ -484,50 +572,26 @@
             .contact-tab {
                 padding: 12px 20px;
                 font-size: 0.9rem;
+                margin: 0 5px 10px;
             }
             
-            .contact-nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                transition: all 0.5s ease;
+            .contact-footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
             }
             
-            .contact-nav-menu.active {
-                left: 0;
+            .contact-footer-col h3:after {
+                left: 50%;
+                transform: translateX(-50%);
             }
             
-            .contact-nav-item {
-                margin: 15px 0;
+            .contact-social-links {
+                justify-content: center;
             }
             
-            .contact-dropdown-menu {
-                position: static;
-                width: 100%;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                display: none;
-                box-shadow: none;
-                background: rgba(0,0,0,0.03);
-            }
-            
-            .contact-dropdown-menu:before {
-                display: none;
-            }
-            
-            .contact-nav-item:hover .contact-dropdown-menu {
-                display: block;
-            }
-            
-            .contact-mobile-menu-btn {
-                display: block;
+            .header-content h1 {
+                font-size: 2.5rem;
             }
         }
         
@@ -539,6 +603,15 @@
             .breadcrumb {
                 flex-wrap: wrap;
                 justify-content: center;
+                padding: 8px 15px;
+            }
+            
+            .breadcrumb-item {
+                font-size: 0.8rem;
+            }
+            
+            .breadcrumb-item + .breadcrumb-item::before {
+                margin: 0 8px;
             }
             
             .contact-tabs {
@@ -552,12 +625,76 @@
                 text-align: center;
                 margin-bottom: 10px;
             }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+            
+            .submit-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .contact-logo img {
+                height: 50px;
+            }
+            
+            .contact-header.scrolled .contact-logo img {
+                height: 40px;
+            }
+            
+            .contact-header-container {
+                padding: 10px 0;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .form-container {
+                padding: 15px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+            }
+            
+            .file-upload-label {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .contact-nav-menu {
+                width: 100%;
+                max-width: none;
+            }
         }
         
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+        
+        /* Prevent horizontal scrolling */
+        html, body {
+            overflow-x: hidden;
+        }
+        
+        /* Improve touch targets */
+        .contact-nav-link, .contact-dropdown-item, .contact-footer-links a, 
+        .contact-social-links a, .contact-tab, .submit-btn, .file-upload-label {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -844,8 +981,23 @@
         if(mobileMenuBtn && navMenu) {
             mobileMenuBtn.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+                
+                // Toggle aria-expanded attribute for accessibility
+                const isExpanded = navMenu.classList.contains('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
             });
         }
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.contact-nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
     </script>
           <script>
 // Enhanced form submission with better error handling
