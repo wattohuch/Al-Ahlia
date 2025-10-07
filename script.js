@@ -109,7 +109,7 @@ if (backToTopBtn) {
                 'images/VIBES/2.JPG',
                 'images/VIBES/3.JPG',
                 'images/VIBES/4.JPG',
-                'images/VIBES/5.JPG'   
+                'images/VIBES/5.jpg'   
             ]
         },
         {
@@ -753,5 +753,6 @@ const timelineData = {
         });
     }
  
+
 
 });
