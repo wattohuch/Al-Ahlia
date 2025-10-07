@@ -1,0 +1,2576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Our Projects | Al-Ahlia Contracting Group" data-ar="مشاريعنا | مجموعة الأهلية للمقاولات">Our Projects | Al-Ahlia Contracting Group</title>
+
+    <link rel="icon" href="images/ACG LOGO-2.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+<style>
+    :root {
+        --primary: #8B4513;
+        --secondary: #D2B48C;
+        --dark: #441102;
+        --light: #F5F5F0;
+        --accent: #CD853F;
+        --gray: #6c757d;
+        --transition: all 0.3s ease;
+        --card-shadow: 0 20px 25px -5px rgba(139, 69, 19, 0.1), 0 10px 10px -5px rgba(139, 69, 19, 0.04);
+        --card-shadow-hover: 0 25px 50px -12px rgba(139, 69, 19, 0.25);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: var(--light);
+        position: relative;
+    }
+    
+    /* NEW: Modern Animated Gradient Mesh Background */
+    .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        overflow: hidden;
+        pointer-events: none;
+        background: 
+            radial-gradient(circle at 15% 50%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 85% 30%, rgba(210, 180, 140, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 50% 80%, rgba(205, 133, 63, 0.12) 0%, transparent 50%);
+        background-size: 200% 200%;
+        animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%, 100% 50%, 50% 100%; }
+        50% { background-position: 100% 50%, 0% 50%, 50% 0%; }
+    }
+
+    /* Subtle noise texture */
+    .background-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        opacity: 0.4;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    /* --- START: STICKY HEADER FIX --- */
+    #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+    }
+    
+    #header.sticky {
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+    
+    .logo img {
+        height: 60px;
+        transition: var(--transition);
+    }
+    
+    #header.sticky .logo img {
+        height: 50px;
+    }
+    
+    .nav-menu {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-item {
+        position: relative;
+        margin: 0 15px;
+    }
+    
+    .nav-link {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 10px 0;
+        position: relative;
+        transition: var(--transition);
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+    }
+    
+    .nav-link:hover::after,
+    .nav-link:focus::after {
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        width: 200px;
+        padding: 15px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        z-index: 100;
+    }
+    
+    .nav-item:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .dropdown-item {
+        padding: 8px 20px;
+    }
+    
+    .dropdown-item a {
+        color: var(--dark);
+        text-decoration: none;
+        transition: var(--transition);
+        display: block;
+    }
+    
+    .dropdown-item a:hover {
+        color: var(--primary);
+        padding-left: 5px;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+    }
+    
+    /* Language Toggle Button */
+    .language-toggle {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: var(--transition);
+        margin-left: 15px;
+    }
+    
+    .language-toggle:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+    }
+    
+    /* RTL Support */
+    html[dir="rtl"] body {
+        direction: rtl;
+        text-align: right;
+        font-family: 'Cairo', 'Montserrat', sans-serif;
+    }
+    
+    html[dir="rtl"] .nav-menu {
+        flex-direction: row-reverse;
+    }
+    
+    html[dir="rtl"] .dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+    
+    html[dir="rtl"] .dropdown-item a:hover {
+        padding-left: 0;
+        padding-right: 5px;
+    }
+    
+    html[dir="rtl"] .content-block h2::after {
+        left: auto;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    html[dir="rtl"] .timeline-item:nth-child(odd) {
+        left: auto;
+        right: 0;
+    }
+    
+    html[dir="rtl"] .timeline-item:nth-child(even) {
+        left: auto;
+        right: 55%;
+    }
+    
+    html[dir="rtl"] .timeline-item:nth-child(odd) .timeline-dot {
+        right: auto;
+        left: -52px;
+    }
+    
+    html[dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+        left: auto;
+        right: -52px;
+    }
+    
+    html[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+        content: '‹';
+        margin: 0 12px;
+    }
+    
+    /* Google Translate Widget */
+    #google_translate_element_container {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+    }
+    
+    #google_translate_element {
+        width: auto;
+    }
+    
+    .goog-te-gadget-simple {
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: inline-block;
+    }
+    
+    .goog-te-gadget-simple .goog-te-menu-value span {
+        color: var(--dark) !important;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        text-decoration: none !important;
+        line-height: 1;
+    }
+    
+    .goog-te-gadget-simple .goog-te-menu-value span .goog-arrow {
+        color: var(--dark) !important;
+    }
+    
+    .goog-logo-link, .goog-te-gadget-icon {
+        display: none !important;
+    }
+    
+    .goog-te-gadget {
+        color: transparent !important;
+        font-size: 0;
+    }
+    /* --- END: STICKY HEADER FIX --- */
+    
+    /* --- HERO SECTION WITH BACKGROUND IMAGE --- */
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1511371496040-1fb40794e675?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        transition: transform 0.3s ease-out;
+        z-index: -1;
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0.2) 100%
+        );
+        z-index: 0;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        padding: 0 20px;
+        max-width: 800px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    
+    .hero-scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+        z-index: 2;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        40% {
+            transform: translateX(-50%) translateY(-20px);
+        }
+        60% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+    
+    /* --- NEW STYLES for relocated page title --- */
+    .page-title-header {
+        text-align: center;
+        padding: 150px 0 60px; /* Increased top padding to account for fixed header */
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .page-title-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(210, 180, 140, 0.05) 100%);
+        z-index: -1;
+    }
+    
+    .page-title-header h1 {
+        font-size: 3.5rem;
+        color: var(--dark);
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+        font-weight: 700;
+    }
+    
+    .page-title-header h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--primary);
+    }
+    
+    .page-title-header .breadcrumb {
+        background-color: transparent;
+        display: inline-flex;
+        padding: 0;
+        justify-content: center;
+        list-style: none;
+    }
+    
+    .page-title-header .breadcrumb-item a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+    
+    .page-title-header .breadcrumb-item a:hover {
+        color: var(--dark);
+    }
+    
+    .page-title-header .breadcrumb-item.active {
+        color: var(--gray);
+    }
+    
+    .page-title-header .breadcrumb-item + .breadcrumb-item::before {
+        content: '›';
+        margin: 0 12px;
+        color: var(--gray);
+    }
+    /* --- END NEW STYLES --- */
+    
+    /* Projects Section */
+    .projects-section {
+        padding: 80px 0;
+        position: relative;
+    }
+    
+
+    
+    /* Projects Grid */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .project-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition);
+        height: 380px;
+        background: white;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: var(--card-shadow-hover);
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+        transform: scale(1.05);
+    }
+    
+    .project-card:hover .project-image {
+        transform: scale(1.1);
+    }
+    
+    .project-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        padding: 30px 20px 20px;
+        color: white;
+        transform: translateY(0);
+        transition: var(--transition);
+    }
+    
+    .project-card:hover .project-overlay {
+        background: linear-gradient(to top, rgba(139, 69, 19, 0.95), transparent);
+        padding-top: 50px;
+    }
+    
+    .project-category {
+        display: inline-block;
+        padding: 5px 15px;
+        background: var(--secondary);
+        color: var(--dark);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    
+    .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    
+    .project-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .project-actions {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: var(--transition);
+    }
+    
+    .project-card:hover .project-actions {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.9);
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .action-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* NEW: Project card glow effect */
+    .project-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 15px;
+        opacity: 0;
+        box-shadow: 0 0 30px 10px rgba(139, 69, 19, 0.3);
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .project-card:hover::after {
+        opacity: 1;
+    }
+    
+    /* Load More Button */
+    .load-more-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .load-more-btn {
+        padding: 15px 40px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    }
+    
+    .load-more-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: var(--dark);
+        transition: var(--transition);
+        z-index: -1;
+        border-radius: 30px;
+    }
+    
+    .load-more-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .load-more-btn:hover::before {
+        width: 100%;
+    }
+    
+    .load-more-btn .loading {
+        display: none;
+    }
+    
+    .load-more-btn.loading .text {
+        display: none;
+    }
+    
+    .load-more-btn.loading .loading {
+        display: block;
+    }
+    
+    /* Project Counter */
+    .project-counter {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.2rem;
+        color: var(--dark);
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 30px;
+        background: rgba(139, 69, 19, 0.1);
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(139, 69, 19, 0.1);
+    }
+    
+    .counter-number {
+        font-weight: 700;
+        color: var(--primary);
+    }
+    
+    /* Statistics Banner */
+    .stats-banner {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        padding: 100px 0;
+        margin: 100px 0;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .stats-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white"/></pattern></defs><rect width="100" height="100" fill="url(#dots)"/></svg>');
+        background-size: 100px 100px;
+        background-repeat: repeat;
+        z-index: 0;
+    }
+    
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .stat-item {
+        padding: 20px;
+        position: relative;
+    }
+    
+    .stat-item::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 60%;
+        background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .stat-item:last-child::after {
+        display: none;
+    }
+    
+    .stat-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+    
+    /* Project Modal */
+    .project-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        padding: 20px;
+    }
+    
+    .project-modal.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 1100px;
+        max-height: 90vh;
+        border-radius: 15px;
+        overflow: hidden;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    
+    .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.5);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: var(--transition);
+    }
+    
+    .modal-close:hover {
+        background: var(--primary);
+        transform: rotate(90deg);
+    }
+    
+    .modal-header {
+        position: relative;
+        height: 400px;
+    }
+    
+    .modal-header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .modal-body {
+        padding: 40px;
+    }
+    
+    .modal-title {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        color: var(--dark);
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .modal-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: var(--primary);
+    }
+    
+    .modal-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .detail-item {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .detail-label {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin-bottom: 5px;
+    }
+    
+    .detail-value {
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 1.1rem;
+    }
+    
+    .modal-description {
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+    
+    .modal-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .gallery-item {
+        height: 150px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+    
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+    
+    /* Footer */
+    footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+        position: relative;
+    }
+    
+    footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+    
+    .footer-col h3 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .footer-col h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary);
+    }
+    
+    .footer-col p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+    }
+    
+    .footer-links {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+    
+    .footer-links li i {
+        margin-right: 10px;
+        color: var(--secondary);
+    }
+    
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+    }
+    
+    .copyright {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 999;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .back-to-top:hover {
+        background: var(--dark);
+        transform: translateY(-5px);
+    }
+    
+    /* Enhanced Preloader */
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+    }
+    
+    .preloader-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+        animation: pulse 1.5s infinite ease-in-out;
+    }
+    
+    .preloader-logo img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .preloader-progress {
+        width: 200px;
+        height: 4px;
+        background: rgba(139, 69, 19, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .preloader-progress-bar {
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: var(--primary);
+        border-radius: 4px;
+        transition: width 0.4s ease;
+    }
+    
+    .preloader-text {
+        margin-top: 20px;
+        color: var(--dark);
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    /* Decorative elements */
+    .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(139, 69, 19, 0.05);
+        z-index: -1;
+    }
+    
+    .circle-1 {
+        width: 300px;
+        height: 300px;
+        top: -150px;
+        right: -150px;
+    }
+    
+    .circle-2 {
+        width: 200px;
+        height: 200px;
+        bottom: 100px;
+        left: -100px;
+    }
+
+    /* Enhanced decorative elements for visual interest */
+    .decorative-element {
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+    }
+    
+    .decorative-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(139, 69, 19, 0.1);
+    }
+    
+    .dot-1 {
+        top: 20%;
+        left: 5%;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .dot-2 {
+        top: 60%;
+        right: 7%;
+        animation: float 8s ease-in-out infinite;
+    }
+    
+    .dot-3 {
+        bottom: 30%;
+        left: 10%;
+        animation: float 7s ease-in-out infinite;
+    }
+    
+    .decorative-line {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1), transparent);
+    }
+    
+    .line-1 {
+        width: 100px;
+        top: 40%;
+        right: 10%;
+        transform: rotate(45deg);
+    }
+    
+    .line-2 {
+        width: 150px;
+        bottom: 20%;
+        left: 5%;
+        transform: rotate(-30deg);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .page-title-header h1 {
+            font-size: 2.8rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            flex-direction: column;
+            padding: 80px 20px 30px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-item {
+            margin: 10px 0;
+        }
+        
+        .dropdown-menu {
+            position: static;
+            width: 100%;
+            box-shadow: none;
+            margin-top: 10px;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            display: none;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            z-index: 1000;
+        }
+        
+        .mobile-menu-btn.active i::before {
+            content: "\f00d";
+        }
+        
+        .stats-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .stat-item::after {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        
+        .project-card {
+            height: 320px;
+        }
+        
+        .modal-details {
+            grid-template-columns: 1fr;
+        }
+        
+        .modal-header {
+            height: 300px;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+        }
+        
+        .page-title-header {
+            padding: 130px 0 40px;
+        }
+        
+        .page-title-header h1 {
+            font-size: 2.2rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .stats-banner {
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+        }
+        
+        .preloader-logo {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .preloader-logo img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .filter-controls {
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .project-card {
+            height: 280px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+        
+        .hero-content p {
+            font-size: 1rem;
+        }
+        
+        .stats-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .page-title-header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .preloader-logo {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .preloader-logo img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .preloader-progress {
+            width: 160px;
+        }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    /* New animations */
+    @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(5deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+    }
+    
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+</style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <video autoplay muted loop id="preloader-video">
+            <source src="videos/pre1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- NEW: Modern Animated Gradient Mesh Background -->
+    <div class="background-container"></div>
+
+    <!-- Updated Header with Language Toggle -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Al-Ahlia Contracting Group Logo">
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-en="About Us" data-ar="من نحن">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" data-en="Our Services" data-ar="خدماتنا">Our Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link active" data-en="Our Projects" data-ar="مشاريعنا">Our Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <button onclick="toggleLanguage()" class="language-toggle">
+                        <i class="fas fa-language"></i> <span id="language-text" data-en="Arabic" data-ar="English">Arabic</span>
+                    </button>
+                </li>
+            </ul>
+            
+            <div id="google_translate_element_container">
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH BACKGROUND IMAGE -->
+    <section class="hero-section">
+        <div class="hero-background" id="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-en="Our Portfolio" data-ar="محفظة أعمالنا">Our Portfolio</h1>
+            <p data-en="Showcasing excellence in construction and design" data-ar="عرض التميز في البناء والتصميم">Showcasing excellence in construction and design</p>
+        </div>
+        <div class="hero-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <main>
+        <section class="projects-section">
+            <div class="container">
+                
+                <div class="project-counter" data-aos="fade-up" data-aos-delay="50">
+                    <span data-en="Showcasing" data-ar="عرض"></span> <span class="counter-number">160+</span> <span data-en="completed projects" data-ar="مشروع مكتمل"></span>
+                </div>
+                
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Project cards will be inserted here by JavaScript -->
+                </div>
+                
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="load-more">
+                        <span class="text" data-en="Load More Projects" data-ar="تحميل المزيد من المشاريع">Load More Projects</span>
+                        <span class="loading">
+                            <i class="fas fa-spinner fa-spin"></i> <span data-en="Loading..." data-ar="جاري التحميل...">Loading...</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats-banner">
+            <div class="container stats-container">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="stat-number" data-count="160">0</span>
+                    <span class="stat-label" data-en="Projects Completed" data-ar="مشروع مكتمل">Projects Completed</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="stat-number" data-count="45">0</span>
+                    <span class="stat-label" data-en="Years of Experience" data-ar="سنوات من الخبرة">Years of Experience</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label" data-en="Happy Clients" data-ar="عميل سعيد">Happy Clients</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label" data-en="Awards Won" data-ar="جائزة تم الفوز بها">Awards Won</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="project-modal" id="project-modal">
+        <div class="modal-content">
+            <div class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-header">
+                <img src="" alt="" id="modal-image">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modal-title"></h2>
+                <div class="modal-details" id="modal-details">
+                    <!-- Details will be inserted here by JavaScript -->
+                </div>
+                <div class="modal-description" id="modal-description"></div>
+                <h3 data-en="Project Gallery" data-ar="معرض المشروع">Project Gallery</h3>
+                <div class="modal-gallery" id="modal-gallery">
+                    <!-- Gallery items will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Updated Footer with Arabic Support -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col" data-aos="fade-up">
+                    <h3 data-en="Al-Ahlia Contracting" data-ar="الأهلية للمقاولات">Al-Ahlia Contracting</h3>
+                    <p data-en="Building Kuwait's future with excellence since 1978. We deliver quality construction services with integrity and innovation." data-ar="نبني مستقبل الكويت بتميز منذ عام 1978. نقدم خدمات بناء عالية الجودة بالنزاهة والابتكار.">Building Kuwait's future with excellence since 1978. We deliver quality construction services with integrity and innovation.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/ahlia-contracting-group" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/acgkuwait/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/acgkuwait" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/user/acgkuwait" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="about.html" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                        <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="projects.html" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                        <li><a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h3 data-en="Services" data-ar="الخدمات">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html" data-en="Construction Management" data-ar="إدارة الإنشاءات">Construction Management</a></li>
+                        <li><a href="services.html" data-en="Architectural Design" data-ar="التصميم المعماري">Architectural Design</a></li>
+                        <li><a href="services.html" data-en="Project Planning" data-ar="تخطيط المشاريع">Project Planning</a></li>
+                        <li><a href="services.html" data-en="Value Engineering" data-ar="هندسة القيمة">Value Engineering</a></li>
+                        <li><a href="services.html" data-en="Residential Construction" data-ar="البناء السكني">Residential Construction</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                    <h3 data-en="Contact Info" data-ar="معلومات الاتصال">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-en="Al-Rai, Kuwait" data-ar="الراي، الكويت">Al-Rai, Kuwait</span></li>
+                        <li><i class="fas fa-phone-alt"></i> +965 24728023</li>
+                        <li><i class="fas fa-envelope"></i> info@acg.com.kw</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright" data-aos="fade-up">
+                <p data-en="© 2025 Al-Ahlia Contracting Group. All Rights Reserved." data-ar="© 2025 مجموعة الأهلية للمقاولات. جميع الحقوق محفوظة.">© <span id="copyright-year">2025</span> Al-Ahlia Contracting Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Language state
+        let isArabic = false;
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Set current year for copyright
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Project data (in a real scenario, this would come from a database)
+        const projectsData = [
+  {
+    id: 1,
+    title: { en: "Al Sayer Office & Stores", ar: "مكتب ومخازن الصاير" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id1/img1.jpg",
+    year: "2017",
+    location: { en: "Ardiya", ar: "العارضية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Al Sayer Office & Stores project in Ardiya area with a contract value of 11,000,000 KD, completed in March 2017.",
+      ar: "مشروع مكتب ومخازن الصاير في منطقة العارضية بقيمة عقد ١١٬٠٠٠٬٠٠٠ د.ك، تم الانتهاء منه في مارس ٢٠١٧."
+    },
+    gallery: ["images/id1/img2.jpg", "images/id1/img3.jpg", "images/id1/img4.jpg"]
+  },
+  {
+    id: 2,
+    title: { en: "Ghanima Commercial Center", ar: "مركز الغنيمة التجاري" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id2/img1.jpg",
+    year: "2016",
+    location: { en: "Shuwaikh", ar: "الشويخ" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Ghanima Commercial Center in Shuwaikh with a contract value of 2,680,000 KD, completed in February 2016.",
+      ar: "مركز الغنيمة التجاري في الشويخ بقيمة عقد ٢٬٦٨٠٬٠٠٠ د.ك، تم الانتهاء منه في فبراير ٢٠١٦."
+    },
+    gallery: []
+  },
+  {
+    id: 3,
+    title: { en: "Light Restaurant Complex", ar: "مجمع مطاعم لايت" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id3/img1.jpg",
+    year: "2015",
+    location: { en: "Mahboula", ar: "المهبولة" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Restaurant Complex (Light) at Mahboula with a contract value of 1,760,000 KD, completed in January 2015.",
+      ar: "مجمع مطاعم لايت في المهبولة بقيمة عقد ١٬٧٦٠٬٠٠٠ د.ك، تم الانتهاء منه في يناير ٢٠١٥."
+    },
+    gallery: ["images/id3/img2.jpg", "images/id3/img3.jpg", "images/id3/img4.jpg"]
+  },
+  {
+    id: 4,
+    title: { en: "As Khalid Residential Tower", ar: "برج أس خالد السكني" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id4/img1.jpg",
+    year: "2018",
+    location: { en: "Hawalli", ar: "حولي" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "As Khalid Residential Tower in Hawalli with a contract value of 6,000,000 KD, completed in January 2018.",
+      ar: "برج أس خالد السكني في حولي بقيمة عقد ٦٬٠٠٠٬٠٠٠ د.ك، تم الانتهاء منه في يناير ٢٠١٨."
+    },
+    gallery: ["images/id4/img2.jpg", "images/id4/img3.jpg", "images/id4/img4.jpg"]
+  },
+  {
+    id: 5,
+    title: { en: "Levels Restaurant Complex", ar: "مجمع مطاعم ليفلز" },
+    category: { en: "Hospitality", ar: "ضيافة" },
+    image: "images/id5/img1.jpg",
+    year: "2014",
+    location: { en: "Mahboula", ar: "المهبولة" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Restaurant Complex (Levels) at Mahboula with a contract value of 1,500,000 KD, completed in October 2014.",
+      ar: "مجمع مطاعم ليفلز في المهبولة بقيمة عقد ١٬٥٠٠٬٠٠٠ د.ك، تم الانتهاء منه في أكتوبر ٢٠١٤."
+    },
+    gallery: ["images/id5/img2.jpg", "images/id5/img3.jpg", "images/id5/img4.jpg"]
+  },
+  {
+    id: 6,
+    title: { en: "New Specialty Eye Center", ar: "مركز العيون التخصصي الجديد" },
+    category: { en: "Healthcare", ar: "الرعاية الصحية" },
+    image: "images/id6/img1.jpg",
+    year: "2013",
+    location: { en: "Shaab", ar: "شعّاب" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "New Specialty Eye Center in Shaab with a contract value of 2,600,000 KD, completed in November 2013.",
+      ar: "مركز العيون التخصصي الجديد في شعّاب بقيمة عقد ٢٬٦٠٠٬٠٠٠ د.ك، تم الانتهاء منه في نوفمبر ٢٠١٣."
+    },
+    gallery: ["images/id6/img2.jpg", "images/id6/img3.jpg", "images/id6/img4.jpg"]
+  },
+  {
+    id: 7,
+    title: { en: "Kidney Dialysis Center", ar: "مركز غسيل الكلى" },
+    category: { en: "Healthcare", ar: "الرعاية الصحية" },
+    image: "images/id7/img1.jpg",
+    year: "2013",
+    location: { en: "Shuwaikh", ar: "الشويخ" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Kidney Dialysis Center in Shuwaikh with a contract value of 1,260,000 KD, completed in November 2013.",
+      ar: "مركز غسيل الكلى في الشويخ بقيمة عقد ١٬٢٦٠٬٠٠٠ د.ك، تم الانتهاء منه في نوفمبر ٢٠١٣."
+    },
+    gallery: ["images/id7/img2.jpg", "images/id7/img3.jpg", "images/id7/img4.jpg"]
+  },
+  {
+    id: 8,
+    title: { en: "Hawalli Mall", ar: "مول حولي" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id8/img1.jpg",
+    year: "2010",
+    location: { en: "Hawalli - Beirut Street", ar: "حولي – شارع بيروت" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Hawalli Mall on Beirut Street, Hawalli with a contract value of 13,000,000 KD, completed in April 2010.",
+      ar: "مول حولي في شارع بيروت، حولي بقيمة عقد ١٣٬٠٠٠٬٠٠٠ د.ك، تم الانتهاء منه في أبريل ٢٠١٠."
+    },
+    gallery: ["images/id8/img2.jpg", "images/id8/img3.jpg", "images/id8/img4.jpg", "images/id8/img5.jpg", "images/id8/img6.jpg"]
+  },
+  {
+    id: 9,
+    title: { en: "Al Khalid Tower", ar: "برج الخالد" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id9/img1.jpg",
+    year: "2005",
+    location: { en: "Qibla", ar: "القبلة" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Al Khalid Tower – 23 storeys at Qibla with a contract value of 1,750,000 KD, completed in August 2005.",
+      ar: "برج الخالد – ٢٣ طابقًا في القبلة بقيمة عقد ١٬٧٥٠٬٠٠٠ د.ك، تم الانتهاء منه في أغسطس ٢٠٠٥."
+    },
+    gallery: ["images/id9/img2.jpg", "images/id9/img3.jpg", "images/id9/img4.jpg"]
+  },
+  {
+    id: 10,
+    title: { en: "Al Safat Center", ar: "مركز الصفاة" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id10/img1.jpg",
+    year: "2008",
+    location: { en: "Qibla - Fahed Al Salem Street", ar: "القبلة – شارع فهد السالم" },
+    size: { en: "156,000 sq ft", ar: "١٥٦٬٠٠٠ قدم مربع" },
+    description: {
+      en: "Al Safat Center on Fahed Al Salem Street, Qibla – 34 office floors + 2 service floors with total built-up area of 14,500 sq.m. Contract value of 5,500,000 KD, completed in July 2008.",
+      ar: "مركز الصفاة في شارع فهد السالم، القبلة – ٣٤ طابق مكتب + ٢ طابق خدمات بإجمالي مساحة بناء ١٤٬٥٠٠ م². قيمة العقد ٥٬٥٠٠٬٠٠٠ د.ك، تم الانتهاء منه في يوليو ٢٠٠٨."
+    },
+    gallery: ["images/id10/img2.jpg", "images/id10/img3.jpg", "images/id10/img4.jpg"]
+  },
+  {
+    id: 11,
+    title: { en: "Villa Moda", ar: "فيلا مودا" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id11/img1.jpg",
+    year: "2002",
+    location: { en: "Shuwaikh F.T.Z", ar: "المنطقة الحرة الشويخ" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Villa Moda – Fashion Super Store at Shuwaikh F.T.Z with a contract value of 8,800,000 KD, completed in August 2002.",
+      ar: "فيلا مودا – متجر أزياء ضخم في المنطقة الحرة الشويخ بقيمة عقد ٨٬٨٠٠٬٠٠٠ د.ك، تم الانتهاء منه في أغسطس ٢٠٠٢."
+    },
+    gallery: ["images/id11/img2.jpg", "images/id11/img3.jpg", "images/id11/img4.jpg"]
+  },
+  {
+    id: 12,
+    title: { en: "Mubarak Tower", ar: "برج مبارك" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id12/img1.jpg",
+    year: "2007",
+    location: { en: "Mubarakiah", ar: "مباركية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Mubarak Tower at Mubarakiah with a contract value of 2,000,000 KD, completed in July 2007.",
+      ar: "برج مبارك في المباركية بقيمة عقد ٢٬٠٠٠٬٠٠٠ د.ك، تم الانتهاء منه في يوليو ٢٠٠٧."
+    },
+    gallery: ["images/id12/img2.jpg", "images/id12/img3.jpg", "images/id12/img4.jpg"]
+  },
+  {
+    id: 13,
+    title: { en: "Al Thuraya Complex", ar: "مجمع الثريا" },
+    category: { en: "Residential / Commercial", ar: "سكني / تجاري" },
+    image: "images/id13/img1.jpg",
+    year: "1999",
+    location: { en: "Salmiya", ar: "السالمية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Al Thuraya Commercial & Residential Complex at Salmiya with a contract value of 2,200,000 KD, completed in May 1999.",
+      ar: "مجمع الثريا التجاري والسكني في السالمية بقيمة عقد ٢٬٢٠٠٬٠٠٠ د.ك، تم الانتهاء منه في مايو ١٩٩٩."
+    },
+    gallery: ["images/id13/img2.jpg", "images/id13/img3.jpg", "images/id13/img4.jpg"]
+  },
+  {
+    id: 14,
+    title: { en: "Nissan Car Showroom", ar: "معرض سيارات نيسان" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id14/img1.jpg",
+    year: "1998",
+    location: { en: "Al-Rai", ar: "الراي" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Nissan Car Showroom at Al-Rai with a contract value of 870,000 KD, completed in September 1998.",
+      ar: "معرض سيارات نيسان في الراي بقيمة عقد ٨٧٠٬٠٠٠ د.ك، تم الانتهاء منه في سبتمبر ١٩٩٨."
+    },
+    gallery: ["images/id14/img2.jpg", "images/id14/img3.jpg"]
+  },
+  {
+    id: 15,
+    title: { en: "Rakan Tower", ar: "برج راكان" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id15/img1.jpg",
+    year: "2005",
+    location: { en: "Fahed Al Salem Street", ar: "شارع فهد السالم" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Rakan Tower – 32 storeys at Fahed Al Salem Street with a contract value of 4,270,000 KD, completed in December 2005.",
+      ar: "برج راكان – ٣٢ طابقًا في شارع فهد السالم بقيمة عقد ٤٬٢٧٠٬٠٠٠ د.ك، تم الانتهاء منه في ديسمبر ٢٠٠٥."
+    },
+    gallery: ["images/id15/img2.jpg", "images/id15/img3.jpg"]
+  },
+  {
+    id: 16,
+    title: { en: "Aviation Complex ACK", ar: "المجمع الجوي ACK" },
+    category: { en: "Educational", ar: "تعليمي" },
+    image: "images/id16/img1.jpg",
+    year: "2007",
+    location: { en: "Mishref", ar: "مشرف" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Aviation Complex & Engineering Building for Australian College with a contract value of 1,500,000 KD, completed in September 2007.",
+      ar: "المجمع الجوي ومبنى الهندسة للكلية الأسترالية بقيمة عقد ١٬٥٠٠٬٠٠٠ د.ك، تم الانتهاء منه في سبتمبر ٢٠٠٧."
+    },
+    gallery: ["images/id16/img2.jpg", "images/id16/img3.jpg", "images/id16/img4.jpg"]
+  },
+  {
+    id: 17,
+    title: { en: "Child Evaluation & Teaching Center", ar: "مركز التقييم والتعليم للأطفال" },
+    category: { en: "Educational", ar: "تعليمي" },
+    image: "images/id17/img1.jpg",
+    year: "2007",
+    location: { en: "Shuwa", ar: "الشوي" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Child Evaluation & Teaching Center at Shuwa with a contract value of 1,800,000 KD, completed in July 2007.",
+      ar: "مركز تقييم وتعليم الأطفال في الشوي بقيمة عقد ١٬٨٠٠٬٠٠٠ د.ك، تم الانتهاء منه في يوليو ٢٠٠٧."
+    },
+    gallery: ["images/id17/img2.jpg", "images/id17/img3.jpg", "images/id17/img4.jpg"]
+  },
+  {
+    id: 18,
+    title: { en: "Al-Khaled Residential Buildings", ar: "المباني السكنية الخالد" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id18/img1.jpg",
+    year: "2007",
+    location: { en: "Hawalli", ar: "حولي" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Al-Khaled Residential Buildings in Hawalli with a contract value of 1,600,000 KD, completed in August 2006.",
+      ar: "المبانِ السكنية الخالد في حولي بقيمة عقد ١٬٦٠٠٬٠٠٠ د.ك، تم الانتهاء منها في أغسطس ٢٠٠٦."
+    },
+    gallery: ["images/id18/img2.jpg", "images/id18/img3.jpg", "images/id18/img4.jpg"]
+  },
+  {
+    id: 19,
+    title: { en: "Private Villas at Finhamees", ar: "فلل خاصة في فنحاميس" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id19/img1.jpg",
+    year: "2005",
+    location: { en: "Finhamees", ar: "فنحاميس" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Private Villas at Finhamees with a contract value of 1,260,000 KD, completed in October 2005.",
+      ar: "فلل خاصة في فنحاميس بقيمة عقد ١٬٢٦٠٬٠٠٠ د.ك، تم الانتهاء منها في أكتوبر ٢٠٠٥."
+    },
+    gallery: []
+  },
+  {
+    id: 20,
+    title: { en: "2 Residential Buildings", ar: "مبنيان سكنيان" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id20/img1.jpg",
+    year: "1986",
+    location: { en: "Sharq", ar: "شرق" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "2 Residential Buildings at Sharq with a contract value of 600,000 KD, completed in April 1987.",
+      ar: "مبنيان سكنيان في شرق بقيمة عقد ٦٠٠٬٠٠٠ د.ك، تم الانتهاء منهما في أبريل ١٩٨٧."
+    },
+    gallery: []
+  },
+  {
+    id: 21,
+    title: { en: "Shaikha Tower", ar: "برج الشيخة" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id21/img1.jpg",
+    year: "2008",
+    location: { en: "Salmiya", ar: "السالمية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Shaikha Tower in Salmiya with a contract value of 2,500,000 KD, completed in June 2008.",
+      ar: "برج الشيخة في السالمية بقيمة عقد ٢٬٥٠٠٬٠٠٠ د.ك، تم الانتهاء منه في يونيو ٢٠٠٨."
+    },
+    gallery: ["images/id21/img2.jpg", "images/id21/img3.jpg"]
+  },
+  {
+    id: 22,
+    title: { en: "Nadia Tower", ar: "برج ناديا" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id22/img1.jpg",
+    year: "2008",
+    location: { en: "Salmiya", ar: "السالمية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Nadia Tower in Salmiya with a contract value of 2,500,000 KD, completed in December 2008.",
+      ar: "برج ناديا في السالمية بقيمة عقد ٢٬٥٠٠٬٠٠٠ د.ك، تم الانتهاء منه في ديسمبر ٢٠٠٨."
+    },
+    gallery: ["images/id22/img2.jpg", "images/id22/img3.jpg"]
+  },
+  {
+    id: 23,
+    title: { en: "8 Storey Studio Apartments Building", ar: "مبنى استوديو مكون من ٨ طوابق" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id23/img1.jpg",
+    year: "1980",
+    location: { en: "Kuwait", ar: "الكويت" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "8 Storey Studio Apartments Building with a contract value of 420,000 KD, completed in April 1980.",
+      ar: "مبنى استوديو مكون من ٨ طوابق بقيمة عقد ٤٢٠٬٠٠٠ د.ك، تم الانتهاء منه في أبريل ١٩٨٠."
+    },
+    gallery: []
+  },
+  {
+    id: 24,
+    title: { en: "Luxury Villa at Shuwaikh", ar: "فيلا فاخرة في الشويخ" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id24/img1.jpg",
+    year: "2011",
+    location: { en: "Shuwaikh", ar: "الشويخ" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Luxury Villa at Shuwaikh with a contract value of 2,000,000 KD, completed in August 2011.",
+      ar: "فيلا فاخرة في الشويخ بقيمة عقد ٢٬٠٠٠٬٠٠٠ د.ك، تم الانتهاء منها في أغسطس ٢٠١١."
+    },
+    gallery: ["images/id24/img2.jpg", "images/id24/img3.jpg", "images/id24/img4.jpg"]
+  },
+  {
+    id: 25,
+    title: { en: "3 Private Chalets", ar: "٣ شاليهات خاصة" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id25/img1.jpg",
+    year: "2004",
+    location: { en: "Benider", ar: "بنيدر" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "3 Private Chalets at Benider with a contract value of 250,000 KD, completed in February 2004.",
+      ar: "٣ شاليهات خاصة في بنيدر بقيمة عقد ٢٥٠٬٠٠٠ د.ك، تم الانتهاء منها في فبراير ٢٠٠٤."
+    },
+    gallery: ["images/id25/img2.jpg", "images/id25/img3.jpg", "images/id25/img4.jpg"]
+  },
+  {
+    id: 26,
+    title: { en: "6 Villas for Al-Ahlia", ar: "٦ فلل للأهلية" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id26/img1.jpg",
+    year: "2000",
+    location: { en: "Salmiya", ar: "السالمية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "6 Villas for Al-Ahlia Shopping Center at Salmiya with a contract value of 360,000 KD, completed in September 2000.",
+      ar: "٦ فلل لمجمع الأهلية في السالمية بقيمة عقد ٣٦٠٬٠٠٠ د.ك، تم الانتهاء منها في سبتمبر ٢٠٠٠."
+    },
+    gallery: ["images/id26/img2.jpg", "images/id26/img3.jpg", "images/id26/img4.jpg"]
+  },
+  {
+    id: 27,
+    title: { en: "Al Munther Tower", ar: "برج المنذر" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id27/img1.jpg",
+    year: "2001",
+    location: { en: "Al Sour Street, Kuwait City", ar: "شارع الصّور، مدينة الكويت" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Al Munther Tower – 16 storey office building at Al Sour Street, Kuwait City, completed in 2001.",
+      ar: "برج المنذر – مبنى مكتبي مكوّن من ١٦ طابقًا في شارع الصّور، مدينة الكويت، تم الانتهاء منه في ٢٠٠١."
+    },
+    gallery: ["images/id27/img2.jpg", "images/id27/img3.jpg"]
+  },
+  {
+    id: 28,
+    title: { en: "American College for MEA", ar: "الكلية الأمريكية لمنطقة الشرق الأوسط وأفريقيا" },
+    category: { en: "Educational", ar: "تعليمي" },
+    image: "images/id28/img1.jpg",
+    year: "2008",
+    location: { en: "Fintas", ar: "الفنطاس" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "American College for MEA at Fintas with a contract value of 2,700,000 KD, completed in August 2008.",
+      ar: "الكلية الأمريكية لمنطقة الشرق الأوسط وأفريقيا في الفنطاس بقيمة عقد ٢٬٧٠٠٬٠٠٠ د.ك، تم الانتهاء منها في أغسطس ٢٠٠٨."
+    },
+    gallery: []
+  },
+  {
+    id: 29,
+    title: { en: "Landmark Shopping Center", ar: "مركز لاند مارك التجاري" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id29/img1.jpg",
+    year: "2008",
+    location: { en: "Salem Al Mubarak Street, Salmiya", ar: "شارع سالم المبارك، السالمية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Landmark Shopping Center at Salem Al Mubarak Street, Salmiya – State of the art modern designs mall mixing concrete with steel & curved glass.",
+      ar: "مركز لاند مارك التجاري في شارع سالم المبارك، السالمية – مول تصميم حديث يمزج الخرسانة بالفولاذ والزجاج المنحني."
+    },
+    gallery: []
+  },
+  {
+    id: 30,
+    title: { en: "Porsche Showroom", ar: "معرض بورشه" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id30/img1.jpg",
+    year: "2003",
+    location: { en: "Al Rai", ar: "الراي" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Porsche Showroom at Al Rai with a contract value of 650,000 KD, completed in October 2003.",
+      ar: "معرض بورشه في الراي بقيمة عقد ٦٥٠٬٠٠٠ د.ك، تم الانتهاء منه في أكتوبر ٢٠٠٣."
+    },
+    gallery: ["images/id30/img2.jpg", "images/id30/img3.jpg"]
+  },
+  {
+    id: 31,
+    title: { en: "Wara Complex", ar: "مجمع وارا" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id31/img1.jpg",
+    year: "1992",
+    location: { en: "Kuwait City", ar: "مدينة الكويت" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Wara Complex with a contract value of 3,000,000 KD, completed in May 1992.",
+      ar: "مجمع وارا بقيمة عقد ٣٬٠٠٠٬٠٠٠ د.ك، تم الانتهاء منه في مايو ١٩٩٢."
+    },
+    gallery: []
+  },
+  {
+    id: 32,
+    title: { en: "Arabic Poetry Diwan", ar: "ديوان الشعر العربي" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id32/img1.jpg",
+    year: "1982",
+    location: { en: "6th Ring Road", ar: "الطريق الدائري السادس" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Arabic Poetry Diwan on the 6th Ring Road.",
+      ar: "ديوان الشعر العربي على الطريق الدائري السادس."
+    },
+    gallery: []
+  },
+  {
+    id: 33,
+    title: { en: "New Chemical Lab", ar: "مختبر كيميائي جديد" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id33/img1.jpg",
+    year: "1994",
+    location: { en: "E.P. Station", ar: "محطة الطاقة" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "New Chemical Lab at E.P. Station with a contract value of 620,000 KD, completed in July 1994.",
+      ar: "مختبر كيميائي جديد في محطة الطاقة بقيمة عقد ٦٢٠٬٠٠٠ د.ك، تم الانتهاء منه في يوليو ١٩٩٤."
+    },
+    gallery: []
+  },
+  {
+    id: 34,
+    title: { en: "Child Teaching Center", ar: "مركز تعليم الأطفال" },
+    category: { en: "Educational", ar: "تعليمي" },
+    image: "images/id34/img1.jpg",
+    year: "2007",
+    location: { en: "Shuwa", ar: "الشوي" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Child Evaluation & Teaching Center – first of its kind in Kuwait for children with special learning needs, built on 7,600 m² land.",
+      ar: "مركز تقييم وتعليم الأطفال – الأول من نوعه في الكويت للأطفال ذوي الاحتياجات التعليمية الخاصة، بُني على أرض مساحتها ٧٬٦٠٠ م²."
+    },
+    gallery: ["images/id34/img2.jpg", "images/id34/img3.jpg", "images/id34/img4.jpg"]
+  },
+  {
+    id: 35,
+    title: { en: "21 Storey Commercial Building", ar: "مبنى تجاري مكوّن من ٢١ طابق" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id35/img1.jpg",
+    year: "1984",
+    location: { en: "Sharq", ar: "شرق" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "21 Storey Commercial Building at Sharq with a contract value of 1,280,000 KD, completed in September 1984.",
+      ar: "مبنى تجاري مكوّن من ٢١ طابقًا في شرق بقيمة عقد ١٬٢٨٠٬٠٠٠ د.ك، تم الانتهاء منه في سبتمبر ١٩٨٤."
+    },
+    gallery: []
+  },
+  {
+    id: 36,
+    title: { en: "Mosque at Bayan", ar: "مسجد في بيان" },
+    category: { en: "Religious", ar: "ديني" },
+    image: "images/id36/img1.jpg",
+    year: "1982",
+    location: { en: "Bayan", ar: "بيان" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Mosque at Bayan with a contract value of 55,000 KD, completed in March 1982.",
+      ar: "مسجد في بيان بقيمة عقد ٥٥٬٠٠٠ د.ك، تم الانتهاء منه في مارس ١٩٨٢."
+    },
+    gallery: []
+  },
+  {
+    id: 37,
+    title: { en: "Shikha Sabikah Al-Sabah Mosque", ar: "مسجد الشيخة صبيكة الصباح" },
+    category: { en: "Religious", ar: "ديني" },
+    image: "images/id37/img1.jpg",
+    year: "1995",
+    location: { en: "Hawalli", ar: "حولي" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Shikha Sabikah Al-Sabah Mosque at Hawalli with a contract value of 1,000,000 KD, completed in January 1995.",
+      ar: "مسجد الشيخة صبيكة الصباح في حولي بقيمة عقد ١٬٠٠٠٬٠٠٠ د.ك، تم الانتهاء منه في يناير ١٩٩٥."
+    },
+    gallery: []
+  },
+  {
+    id: 38,
+    title: { en: "Qinaei Mosque", ar: "مسجد قينعي" },
+    category: { en: "Religious", ar: "ديني" },
+    image: "images/id38/img1.jpg",
+    year: "2001",
+    location: { en: "Sharq", ar: "شرق" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Qinaei Mosque at Sharq with a contract value of 130,000 KD, completed in October 2001.",
+      ar: "مسجد قينعي في شرق بقيمة عقد ١٣٠٬٠٠٠ د.ك، تم الانتهاء منه في أكتوبر ٢٠٠١."
+    },
+    gallery: []
+  },
+  {
+    id: 39,
+    title: { en: "Jaber Al-Ali Mosque", ar: "مسجد جابر العلي" },
+    category: { en: "Religious", ar: "ديني" },
+    image: "images/id39/img1.jpg",
+    year: "2001",
+    location: { en: "South Surra", ar: "السُّرة الجنوبية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Jaber Al-Ali Mosque at South Surra with a contract value of 450,000 KD, completed in October 2001.",
+      ar: "مسجد جابر العلي في السُّرة الجنوبية بقيمة عقد ٤٥٠٬٠٠٠ د.ك، تم الانتهاء منه في أكتوبر ٢٠٠١."
+    },
+    gallery: []
+  },
+  {
+    id: 40,
+    title: { en: "Shereen Mosque", ar: "مسجد شيرين" },
+    category: { en: "Religious", ar: "ديني" },
+    image: "images/id40/img1.jpg",
+    year: "2001",
+    location: { en: "Sharq", ar: "شرق" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Shereen Mosque at Sharq with a contract value of 2,260,000 KD, completed in October 2001.",
+      ar: "مسجد شيرين في شرق بقيمة عقد ٢٬٢٦٠٬٠٠٠ د.ك، تم الانتهاء منه في أكتوبر ٢٠٠١."
+    },
+    gallery: ["images/id40/img2.jpg"]
+  },
+  {
+    id: 41,
+    title: { en: "Mosque at Sabah", ar: "مسجد صباح" },
+    category: { en: "Religious", ar: "ديني" },
+    image: "images/id41/img1.jpg",
+    year: "2011",
+    location: { en: "Sabah", ar: "صباح" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Mosque at Sabah with a contract value of 1,100,000 KD, completed in July 2011.",
+      ar: "مسجد صباح بقيمة عقد ١٬١٠٠٬٠٠٠ د.ك، تم الانتهاء منه في يوليو ٢٠١١."
+    },
+    gallery: ["images/id41/img2.jpg", "images/id41/img3.jpg", "images/id41/img4.jpg"]
+  },
+  {
+    id: 42,
+    title: { en: "Compounds Villas", ar: "فلل المجمعات" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id42/img1.jpg",
+    year: "2003",
+    location: { en: "Abu Al Hasaniah", ar: "أبو الحسنية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Compounds Villas at Abu Al Hasaniah with a contract value of 550,000 KD, completed in September 2003.",
+      ar: "فلل المجمعات في أبو الحسنية بقيمة عقد ٥٥٠٬٠٠٠ د.ك، تم الانتهاء منها في سبتمبر ٢٠٠٣."
+    },
+    gallery: ["images/id42/img2.jpg", "images/id42/img3.jpg", "images/id42/img4.jpg"]
+  },
+  {
+    id: 43,
+    title: { en: "21 Residential Villas", ar: "٢١ فيلا سكنية" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id43/img1.jpg",
+    year: "1999",
+    location: { en: "Abu Al Hasaniah", ar: "أبو الحسنية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "21 Residential Villas at Abu Al Hasaniah with a contract value of 2,250,000 KD, completed in February 1999.",
+      ar: "٢١ فيلا سكنية في أبو الحسنية بقيمة عقد ٢٬٢٥٠٬٠٠٠ د.ك، تم الانتهاء منها في فبراير ١٩٩٩."
+    },
+    gallery: ["images/id43/img2.jpg", "images:id43/img3.jpg", "images:id43/img4.jpg"]
+  },
+  {
+    id: 44,
+    title: { en: "Residential Complex", ar: "مجمع سكني" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id44/img1.jpg",
+    year: "1998",
+    location: { en: "Messelah", ar: "مسيلة" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Residential Complex at Messelah with a contract value of 1,150,000 KD, completed in August 1998.",
+      ar: "مجمع سكني في مسيلة بقيمة عقد ١٬١٥٠٬٠٠٠ د.ك، تم الانتهاء منه في أغسطس ١٩٩٨."
+    },
+    gallery: ["images/id44/img2.jpg"]
+  },
+  {
+    id: 45,
+    title: { en: "Sultan Center", ar: "مركز سلطان" },
+    category: { en: "Commercial", ar: "تجاري" },
+    image: "images/id45/img1.jpg",
+    year: "1998",
+    location: { en: "Farwaniah", ar: "الفروانية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Sultan Center at Farwaniah with a contract value of 85,000 KD, completed in March 1998.",
+      ar: "مركز سلطان في الفروانية بقيمة عقد ٨٥٬٠٠٠ د.ك، تم الانتهاء منه في مارس ١٩٩٨."
+    },
+    gallery: ["images:id45/img2.jpg", "images:id45/img3.jpg"]
+  },
+  {
+    id: 46,
+    title: { en: "Nadia Residential Complex", ar: "المجمع السكني ناديا" },
+    category: { en: "Residential", ar: "سكني" },
+    image: "images/id46/img1.jpg",
+    year: "1986",
+    location: { en: "Salmiya", ar: "السالمية" },
+    size: { en: "TBD sq ft", ar: "قدم مربع غير محددة" },
+    description: {
+      en: "Sultan Center at Salmiya with a contract value of 150,000 KD, completed in May 1986.",
+      ar: "مركز سلطان في السالمية بقيمة عقد ١٥٠٬٠٠٠ د.ك، تم الانتهاء منه في مايو ١٩٨٦."
+    },
+    gallery: ["images:id46/img2.jpg"]
+  }
+];
+
+        // For demonstration, duplicate the projects to simulate 160+ projects
+        const allProjects = [];
+        { // 6 projects * 27 = 162 projects
+            projectsData.forEach(project => {
+                const newProject = {...project, id: allProjects.length + 1};
+                allProjects.push(newProject);
+            });
+        }
+
+        // Variables for pagination
+        let currentPage = 1;
+        const projectsPerPage = 12;
+        let filteredProjects = [...allProjects];
+        let currentFilter = 'all';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileMenuBtn.classList.toggle('active');
+                });
+            }
+            
+            renderProjects();
+            setupLoadMoreButton();
+            setupModal();
+            animateCounters();
+            stickyHeader();
+            backToTop();
+            setupHeroParallax();
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+            
+            // Smooth scroll to projects section
+            document.querySelector('.hero-scroll-indicator').addEventListener('click', function() {
+                document.querySelector('.projects-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+        
+        // Setup hero parallax effect
+        function setupHeroParallax() {
+            const heroBg = document.getElementById('hero-background');
+            
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                heroBg.style.transform = 'translate3d(0px, ' + rate + 'px, 0px)';
+            });
+        }
+        
+        // Render projects based on current page and filter
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            
+            const startIndex = (currentPage - 1) * projectsPerPage;
+            const endIndex = startIndex + projectsPerPage;
+            const projectsToRender = filteredProjects.slice(startIndex, endIndex);
+            
+            // If it's the first page, clear the grid. Otherwise, append.
+            if (currentPage === 1) {
+                grid.innerHTML = '';
+            }
+
+            projectsToRender.forEach(project => {
+                const projectCard = createProjectCard(project);
+                grid.appendChild(projectCard);
+            });
+            
+            // Re-initialize AOS for newly added elements
+            AOS.refresh();
+
+            // Update counter
+            document.querySelector('.counter-number').textContent = filteredProjects.length;
+            
+            // Hide load more button if all projects are shown
+            const loadMoreBtn = document.getElementById('load-more');
+            if (endIndex >= filteredProjects.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-flex';
+            }
+        }
+
+        // Create a project card element
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = `project-card ${project.category.en}`;
+            card.dataset.category = project.category.en;
+            card.dataset.aos = 'fade-up';
+            
+            card.innerHTML = `
+                <img src="${project.image}" alt="${isArabic ? project.title.ar : project.title.en}" class="project-image">
+                <div class="project-overlay">
+                    <span class="project-category">${isArabic ? project.category.ar : project.category.en}</span>
+                    <h3 class="project-title">${isArabic ? project.title.ar : project.title.en}</h3>
+                    <div class="project-meta">
+                        <span>${project.year}</span>
+                        <span>${isArabic ? project.location.ar : project.location.en}</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <div class="action-btn view-project" data-id="${project.id}">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <a href="${project.image}" data-lightbox="project-${project.id}" data-title="${isArabic ? project.title.ar : project.title.en}" class="action-btn">
+                        <i class="fas fa-expand"></i>
+                    </a>
+                </div>
+            `;
+            
+            card.querySelector('.view-project').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const projectId = parseInt(this.dataset.id);
+                openProjectModal(projectId);
+            });
+            
+            return card;
+        }
+
+        // Setup load more button
+        function setupLoadMoreButton() {
+            const loadMoreBtn = document.getElementById('load-more');
+            
+            loadMoreBtn.addEventListener('click', function() {
+                this.classList.add('loading');
+                
+                setTimeout(() => {
+                    currentPage++;
+                    renderProjects();
+                    this.classList.remove('loading');
+                }, 800);
+            });
+        }
+
+        // Setup modal functionality
+        function setupModal() {
+            const modal = document.getElementById('project-modal');
+            const closeBtn = document.getElementById('modal-close');
+            
+            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        // Open project modal with details
+        function openProjectModal(projectId) {
+            const project = allProjects.find(p => p.id === projectId);
+            if (!project) return;
+            
+            document.getElementById('modal-image').src = project.image;
+            document.getElementById('modal-image').alt = isArabic ? project.title.ar : project.title.en;
+            document.getElementById('modal-title').textContent = isArabic ? project.title.ar : project.title.en;
+            
+            document.getElementById('modal-details').innerHTML = `
+                <div class="detail-item"><span class="detail-label" data-en="Category" data-ar="الفئة">Category</span><span class="detail-value">${isArabic ? project.category.ar : project.category.en}</span></div>
+                <div class="detail-item"><span class="detail-label" data-en="Year" data-ar="السنة">Year</span><span class="detail-value">${project.year}</span></div>
+                <div class="detail-item"><span class="detail-label" data-en="Location" data-ar="الموقع">Location</span><span class="detail-value">${isArabic ? project.location.ar : project.location.en}</span></div>
+                <div class="detail-item"><span class="detail-label" data-en="Size" data-ar="الحجم">Size</span><span class="detail-value">${isArabic ? project.size.ar : project.size.en}</span></div>
+            `;
+            
+            document.getElementById('modal-description').textContent = isArabic ? project.description.ar : project.description.en;
+            
+            const galleryContainer = document.getElementById('modal-gallery');
+            galleryContainer.innerHTML = '';
+            project.gallery.forEach(image => {
+                galleryContainer.innerHTML += `<a href="${image}" data-lightbox="project-gallery-${project.id}" data-title="${isArabic ? project.title.ar : project.title.en}" class="gallery-item"><img src="${image}" alt="${isArabic ? project.title.ar : project.title.en}"></a>`;
+            });
+            
+            document.getElementById('project-modal').classList.add('active');
+        }
+
+        // Animate counters in stats section
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-count');
+                        const updateCount = () => {
+                            const count = +counter.innerText;
+                            const inc = target / speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc);
+                                setTimeout(updateCount, 10);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        obs.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Sticky header
+        function stickyHeader() {
+            const header = document.getElementById('header');
+            if (!header) return;
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 50) {
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
+            });
+        }
+        
+        // Back to top button
+        function backToTop() {
+            const backToTopBtn = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if(preloader) {
+                setTimeout(function() {
+                    preloader.style.opacity = '0';
+                    setTimeout(function() {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            }
+        });
+
+        // Language toggle function
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            
+            // Update the language button text
+            document.getElementById('language-text').textContent = isArabic ? 'English' : 'العربية';
+            
+            // Change the page language and direction
+            document.documentElement.lang = isArabic ? "ar" : "en";
+            document.documentElement.dir = isArabic ? "rtl" : "ltr";
+            
+            // Update all translatable elements
+            updatePageContent();
+        }
+        
+        // Update all translatable content on the page
+        function updatePageContent() {
+            const lang = isArabic ? 'ar' : 'en';
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (isArabic && element.hasAttribute('data-ar')) {
+                    element.textContent = element.getAttribute('data-ar');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Update elements with innerHTML content
+            document.querySelectorAll('[data-en-html]').forEach(element => {
+                if (isArabic && element.hasAttribute('data-ar-html')) {
+                    element.innerHTML = element.getAttribute('data-ar-html');
+                } else {
+                    element.innerHTML = element.getAttribute('data-en-html');
+                }
+            });
+            
+            // Re-render projects with new language
+            renderProjects();
+        }
+
+        lightbox.option({
+            'disableScrolling': true
+        });
+        
+        $(document).on('click', '[data-lightbox]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

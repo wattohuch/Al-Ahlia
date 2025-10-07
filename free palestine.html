@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freedom for Palestine - Justice, Dignity, and Liberation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --palestine-red: #ce1126;
+            --palestine-black: #000000;
+            --palestine-white: #ffffff;
+            --palestine-green: #007a3d;
+            --accent-gold: #f2c94c;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        body {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="20" y="0" fill="%23007a3d"/><rect width="100" height="20" y="20" fill="%23ffffff"/><rect width="100" height="20" y="40" fill="%23000000"/><path d="M0,0 L35,50 L0,100 Z" fill="%23ce1126"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--palestine-white);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 10%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 0;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            animation: fadeInUp 1.2s ease-out;
+            background: linear-gradient(to right, #f2c94c, #ffffff, #f2c94c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: textShine 5s linear infinite;
+        }
+        
+        @keyframes textShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+            font-weight: 300;
+        }
+        
+        /* Floating elements */
+        .floating-dove {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .dove-1 {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+        
+        .dove-2 {
+            top: 30%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .dove-3 {
+            bottom: 25%;
+            left: 25%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1.8s ease-out 0.6s both;
+        }
+        
+        nav a {
+            color: var(--palestine-white);
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            border: 2px solid var(--palestine-white);
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--palestine-white);
+            transition: var(--transition);
+            z-index: -1;
+            border-radius: 50px;
+        }
+        
+        nav a:hover {
+            color: var(--palestine-black);
+        }
+        
+        nav a:hover::before {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        
+        section {
+            margin: 5rem 0;
+            padding: 4rem 2.5rem;
+            border-radius: 15px;
+            background-color: var(--palestine-white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--palestine-green), var(--palestine-red));
+        }
+        
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        h2 {
+            color: var(--palestine-green);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--palestine-red), var(--accent-gold));
+            border-radius: 2px;
+        }
+        
+        p {
+            margin-bottom: 1.8rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        
+        /* History Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 4rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            background: linear-gradient(to bottom, var(--palestine-green), var(--palestine-red));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -4px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 15px 50px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 25px;
+            background-color: var(--light-gray);
+            position: relative;
+            border-radius: 10px;
+            border-left: 5px solid var(--palestine-red);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item h3 {
+            color: var(--palestine-green);
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: var(--palestine-white);
+            border: 5px solid var(--palestine-red);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        
+        .timeline-item:hover::after {
+            transform: scale(1.2);
+            background-color: var(--palestine-red);
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -15px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -15px;
+        }
+        
+        /* Modal for timeline details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: var(--palestine-white);
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--palestine-red);
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Voices Section */
+        blockquote {
+            font-style: italic;
+            border-left: 5px solid var(--palestine-green);
+            padding-left: 2rem;
+            margin: 3rem 0;
+            font-size: 1.4rem;
+            background-color: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        blockquote:hover {
+            transform: translateX(10px);
+        }
+        
+        blockquote::before, blockquote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--palestine-green);
+            opacity: 0.2;
+            position: absolute;
+        }
+        
+        blockquote::before {
+            top: 0;
+            left: 10px;
+        }
+        
+        blockquote::after {
+            bottom: -30px;
+            right: 10px;
+        }
+        
+        /* Action Items */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .action-card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            border-top: 5px solid var(--palestine-green);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 122, 61, 0.1));
+            transition: var(--transition);
+            z-index: 0;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .action-card:hover::before {
+            height: 100%;
+        }
+        
+        .action-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--palestine-green);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        
+        .action-card:hover .action-icon {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--palestine-red);
+        }
+        
+        .action-card h3 {
+            margin-bottom: 1rem;
+            color: var(--palestine-green);
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .action-card p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Resources Section */
+        .resources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .resource-card {
+            background: var(--light-gray);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--palestine-green);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-card h3 {
+            color: var(--palestine-green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .resource-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .resource-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .resource-card li::before {
+            content: '•';
+            color: var(--palestine-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .resource-card a {
+            color: var(--palestine-green);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .resource-card a:hover {
+            color: var(--palestine-red);
+            text-decoration: underline;
+        }
+        
+        /* Contact Section */
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-method {
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            background: linear-gradient(145deg, #f5f5f5, #ffffff);
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-top: 4px solid var(--palestine-green);
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-method h3 {
+            color: var(--palestine-green);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .contact-method p {
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--palestine-black), #222222);
+            color: var(--palestine-white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--palestine-green), var(--palestine-red), var(--palestine-black));
+        }
+        
+        footer p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--palestine-white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(40px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Decorative elements */
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--palestine-green);
+            top: -150px;
+            right: -150px;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--palestine-red);
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        /* Particle background effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: floatParticle 15s infinite linear;
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(500px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Tabs for additional content */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--palestine-green);
+            transition: var(--transition);
+        }
+        
+        .tab-btn.active {
+            color: var(--palestine-green);
+        }
+        
+        .tab-btn.active::after {
+            width: 100%;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 2rem 0;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            header p {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+            
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                text-align: left;
+                border-bottom: 1px solid var(--light-gray);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            nav a {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            blockquote {
+                font-size: 1.2rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="particles" id="particles"></div>
+        <i class="floating-dove dove-1 fas fa-dove"></i>
+        <i class="floating-dove dove-2 fas fa-dove"></i>
+        <i class="floating-dove dove-3 fas fa-dove"></i>
+        
+        <div class="header-content">
+            <h1>Freedom for Palestine</h1>
+            <p>Standing in solidarity with the Palestinian people for justice, dignity, and liberation.</p>
+            <nav>
+                <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#history"><i class="fas fa-history"></i> History</a>
+                <a href="#voices"><i class="fas fa-microphone-alt"></i> Voices</a>
+                <a href="#resources"><i class="fas fa-book"></i> Resources</a>
+                <a href="#take-action"><i class="fas fa-hands-helping"></i> Take Action</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="fade-in">
+            <div class="decorative-circle circle-1"></div>
+            <div class="decorative-circle circle-2"></div>
+            
+            <h2>Why We Stand</h2>
+            <p>
+                The Palestinian people have endured decades of occupation, displacement, and human rights violations.
+                This platform exists to amplify their voices, educate the world, and mobilize support for a free and just future.
+            </p>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="mission">Our Mission</button>
+                <button class="tab-btn" data-tab="vision">Our Vision</button>
+                <button class="tab-btn" data-tab="values">Our Values</button>
+            </div>
+            
+            <div class="tab-content active" id="mission">
+                <p>To advocate for Palestinian rights through education, awareness, and peaceful action. We work to:</p>
+                <ul>
+                    <li>Document and share the historical and ongoing struggles of Palestinians</li>
+                    <li>Challenge misinformation and biased narratives in mainstream media</li>
+                    <li>Support humanitarian efforts that provide aid to affected communities</li>
+                    <li>Promote cultural exchange and understanding</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="vision">
+                <p>We envision a future where:</p>
+                <ul>
+                    <li>Palestinians enjoy full sovereignty and self-determination</li>
+                    <li>All refugees have the right to return to their homes</li>
+                    <li>Human rights and dignity are respected for all people in the region</li>
+                    <li>Peace is built on justice rather than oppression</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="values">
+                <p>Our work is guided by these core principles:</p>
+                <ul>
+                    <li><strong>Justice:</strong> Pursuing equitable solutions that address historical wrongs</li>
+                    <li><strong>Solidarity:</strong> Standing with Palestinians and all oppressed peoples</li>
+                    <li><strong>Truth:</strong> Committing to factual accuracy and historical context</li>
+                    <li><strong>Nonviolence:</strong> Advocating through peaceful means and dialogue</li>
+                    <li><strong>Inclusivity:</strong> Welcoming all who support human rights and dignity</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="history" class="fade-in">
+            <h2>Historical Context</h2>
+            <p>
+                From the Nakba in 1948 to the present day, Palestinians have faced systemic oppression and loss of land.
+                Understanding the roots of the conflict is essential to advocating for peace and justice.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="1917">
+                        <h3>1917</h3>
+                        <p>Balfour Declaration: British support for a Jewish homeland in Palestine without consultation with the indigenous population.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="1948">
+                        <h3>1948</h3>
+                        <p>The Nakba — over 700,000 Palestinians displaced from their homes during the establishment of Israel.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="1967">
+                        <h3>1967</h3>
+                        <p>Occupation of Gaza and the West Bank begins following the Six-Day War.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="1987">
+                        <h3>1987</h3>
+                        <p>First Intifada: Palestinian uprising against Israeli occupation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="1993">
+                        <h3>1993</h3>
+                        <p>Oslo Accords: Interim peace agreement that established the Palestinian Authority.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="2000">
+                        <h3>2000</h3>
+                        <p>Second Intifada: Widespread uprising following the failure of peace negotiations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="2005">
+                        <h3>2005</h3>
+                        <p>Israel disengages from Gaza but maintains control of borders, airspace, and waters.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="2007">
+                        <h3>2007</h3>
+                        <p>Gaza blockade begins after Hamas takes control of the territory.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content" data-year="today">
+                        <h3>Today</h3>
+                        <p>Ongoing blockade, settlement expansion, and humanitarian crisis affecting millions of Palestinians.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="voices" class="fade-in">
+            <h2>Voices from Palestine</h2>
+            
+            <blockquote data-author="Rafeef Ziadah" data-role="Palestinian poet and activist">
+                "We teach life, sir."
+            </blockquote>
+            
+            <blockquote data-author="Mahmoud Darwish" data-role="Palestinian poet">
+                "If the olive trees knew the hands that planted them, their oil would become tears."
+            </blockquote>
+            
+            <blockquote data-author="Edward Said" data-role="Palestinian-American academic">
+                "We cannot fight for our rights and our history as well as future until we are armed with weapons of criticism and dedicated consciousness."
+            </blockquote>
+            
+            <blockquote data-author="Ghassan Kanafani" data-role="Palestinian writer and martyr">
+                "The Palestinian cause is not a cause for Palestinians only, but a cause for every revolutionary, wherever they are, as a cause of the exploited and oppressed masses in our era."
+            </blockquote>
+            
+            <p>
+                Hear stories from Palestinian artists, journalists, and families living under occupation.
+                Their resilience and creativity inspire global solidarity.
+            </p>
+            
+            <div class="action-card" id="story-modal-btn">
+                <div class="action-icon">🎤</div>
+                <h3>Amplify Voices</h3>
+                <p>Share stories from Palestinians to counter narratives of dehumanization.</p>
+            </div>
+        </section>
+
+        <section id="resources" class="fade-in">
+            <h2>Educational Resources</h2>
+            <p>Expand your understanding of the Palestinian experience through these recommended resources:</p>
+            
+            <div class="resources-container">
+                <div class="resource-card">
+                    <h3><i class="fas fa-book"></i> Books</h3>
+                    <ul>
+                        <li><a href="#">The Question of Palestine - Edward Said</a></li>
+                        <li><a href="#">Palestine: A Four Thousand Year History - Nur Masalha</a></li>
+                        <li><a href="#">The Hundred Years' War on Palestine - Rashid Khalidi</a></li>
+                        <li><a href="#">Men in the Sun - Ghassan Kanafani</a></li>
+                        <li><a href="#">I Saw Ramallah - Mourid Barghouti</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-film"></i> Documentaries</h3>
+                    <ul>
+                        <li><a href="#">5 Broken Cameras</a></li>
+                        <li><a href="#">The Occupation of the American Mind</a></li>
+                        <li><a href="#">Gaza Fights for Freedom</a></li>
+                        <li><a href="#">The War Around Us</a></li>
+                        <li><a href="#">The Wanted 18</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-globe"></i> Organizations</h3>
+                    <ul>
+                        <li><a href="#">B'Tselem - Israeli Information Center for Human Rights</a></li>
+                        <li><a href="#">Al-Haq - Palestinian Human Rights Organization</a></li>
+                        <li><a href="#">Addameer - Prisoner Support and Human Rights Association</a></li>
+                        <li><a href="#">Electronic Intifada - News & Analysis</a></li>
+                        <li><a href="#">The Palestine Institute for Public Diplomacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="take-action" class="fade-in">
+            <h2>How You Can Help</h2>
+            <p>Your support can make a difference. Here are meaningful ways to take action:</p>
+            
+            <div class="action-grid">
+                <div class="action-card" data-action="awareness">
+                    <div class="action-icon">📢</div>
+                    <h3>Raise Awareness</h3>
+                    <p>Share information on social media and with your community about the Palestinian struggle.</p>
+                </div>
+                <div class="action-card" data-action="donate">
+                    <div class="action-icon">💰</div>
+                    <h3>Donate</h3>
+                    <p>Support humanitarian organizations providing aid to Palestinians in need.</p>
+                </div>
+                <div class="action-card" data-action="advocate">
+                    <div class="action-icon">📝</div>
+                    <h3>Advocate</h3>
+                    <p>Sign petitions and contact your representatives to demand policy changes.</p>
+                </div>
+                <div class="action-card" data-action="create">
+                    <div class="action-icon">🎨</div>
+                    <h3>Create</h3>
+                    <p>Use art, music, or writing to amplify Palestinian voices and stories.</p>
+                </div>
+                <div class="action-card" data-action="boycott">
+                    <div class="action-icon">✋</div>
+                    <h3>Boycott</h3>
+                    <p>Support the BDS movement for Palestinian rights.</p>
+                </div>
+                <div class="action-card" data-action="educate">
+                    <div class="action-icon">📚</div>
+                    <h3>Educate</h3>
+                    <p>Host film screenings, book clubs, or discussions about Palestine.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h2>Connect With Us</h2>
+            <p>Join our community of activists and stay updated on events and actions:</p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3><i class="fas fa-envelope"></i> Email</h3>
+                    <p>solidarity@freedompalestine.org</p>
+                </div>
+                <div class="contact-method">
+                    <h3><i class="fab fa-instagram"></i> Instagram</h3>
+                    <p>@freedomforpalestine</p>
+                </div>
+                <div class="contact-method">
+                    <h3><i class="fab fa-twitter"></i> Twitter</h3>
+                    <p>@palestinefree</p>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Freedom for Palestine. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <!-- Modal for timeline details -->
+    <div class="modal" id="timeline-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-year"></h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal for quotes -->
+    <div class="modal" id="quote-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="quote-author"></h2>
+            <p id="quote-role"></p>
+            <blockquote id="quote-text"></blockquote>
+            <div id="author-bio"></div>
+        </div>
+    </div>
+
+    <!-- Modal for action details -->
+    <div class="modal" id="action-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="action-title"></h2>
+            <div id="action-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal for newsletter signup -->
+    <div class="modal" id="newsletter-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="newsletter-form">
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Name</label>
+                    <input type="text" id="name" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="submit" style="background: var(--palestine-green); color: white; border: none; padding: 1rem 2rem; border-radius: 5px; cursor: pointer; font-weight: 600; transition: var(--transition);">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Fade in elements on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const fadeInOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            
+            const fadeInObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, fadeInOptions);
+            
+            fadeElements.forEach(element => {
+                fadeInObserver.observe(element);
+            });
+            
+            // Timeline items animation
+            const timelineObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            timelineItems.forEach(item => {
+                timelineObserver.observe(item);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Create particle effect
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = 15 + Math.random() * 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Timeline modal functionality
+            const timelineModal = document.getElementById('timeline-modal');
+            const timelineContents = document.querySelectorAll('.timeline-content');
+            const modalYear = document.getElementById('modal-year');
+            const modalContent = document.getElementById('modal-content');
+            
+            // Timeline event details
+            const timelineDetails = {
+                '1917': {
+                    title: 'Balfour Declaration (1917)',
+                    content: `<p>The Balfour Declaration was a public statement issued by the British government during World War I announcing support for the establishment of a "national home for the Jewish people" in Palestine, which was then an Ottoman region with a small minority Jewish population.</p>
+                    <p>The declaration contained several caveats, including that "nothing shall be done which may prejudice the civil and religious rights of existing non-Jewish communities in Palestine". However, it made no mention of the political rights of the Arab majority who comprised over 90% of the population.</p>
+                    <p>This declaration is seen by many historians as the starting point of the ongoing conflict, as it promised land to a people without the consent of its indigenous inhabitants.</p>`
+                },
+                '1948': {
+                    title: 'The Nakba (1948)',
+                    content: `<p>The Nakba (Arabic for "catastrophe") refers to the mass displacement and dispossession of Palestinians during the 1948 Arab-Israeli war.</p>
+                    <p>Between 700,000 and 800,000 Palestinians fled or were expelled from their homes, and hundreds of Palestinian villages were depopulated and destroyed.</p>
+                    <p>The events of the Nakba are commemorated annually on May 15th, the day after Israel declared its independence. For Palestinians, it represents the traumatic loss of their homeland and the beginning of their ongoing refugee crisis.</p>
+                    <p>To this day, Palestinian refugees and their descendants number in the millions, many still living in refugee camps in neighboring Arab countries.</p>`
+                },
+                '1967': {
+                    title: 'Six-Day War and Occupation (1967)',
+                    content: `<p>In June 1967, Israel launched a preemptive strike against Egypt, Syria, and Jordan, leading to what became known as the Six-Day War.</p>
+                    <p>By the war's end, Israel had occupied the Gaza Strip and the Sinai Peninsula from Egypt, the West Bank and East Jerusalem from Jordan, and the Golan Heights from Syria.</p>
+                    <p>This marked the beginning of Israel's military occupation of the Palestinian territories, which continues to this day and represents the longest military occupation in modern history.</p>
+                    <p>The United Nations Security Council passed Resolution 242, calling for Israeli withdrawal from territories occupied in the war, but this has not been implemented.</p>`
+                },
+                '1987': {
+                    title: 'First Intifada (1987-1993)',
+                    content: `<p>The First Intifada (Arabic for "shaking off") was a sustained series of Palestinian protests and civil disobedience against Israeli occupation.</p>
+                    <p>Beginning in December 1987, the uprising was characterized by general strikes, boycotts of Israeli civil administration institutions, barricades, and stone-throwing demonstrations against the heavily-armed Israeli Defense Forces.</p>
+                    <p>The Intifada resulted in over 1,000 Palestinian deaths and injuries to tens of thousands more. It also led to increased international attention on the Palestinian cause.</p>
+                    <p>The uprising eventually contributed to the Madrid Conference in 1991 and the subsequent Oslo Accords.</p>`
+                },
+                '1993': {
+                    title: 'Oslo Accords (1993)',
+                    content: `<p>The Oslo Accords were a set of agreements between the government of Israel and the Palestine Liberation Organization (PLO).</p>
+                    <p>The accords established the Palestinian Authority (PA) with limited self-governance over parts of the West Bank and Gaza Strip, and were intended to be a framework for future relations between the two parties.</p>
+                    <p>However, many key issues were left unresolved, including the status of Jerusalem, Palestinian refugees, Israeli settlements, and final borders.</p>
+                    <p>The accords were controversial among Palestinians, with critics arguing they created a fragmented, non-contiguous Palestinian territory that effectively legitimized Israeli control.</p>`
+                },
+                '2000': {
+                    title: 'Second Intifada (2000-2005)',
+                    content: `<p>The Second Intifada, also known as the Al-Aqsa Intifada, began in September 2000 following the collapse of peace negotiations and a controversial visit by Ariel Sharon to the Temple Mount/Haram al-Sharif.</p>
+                    <p>This uprising was more violent than the first, featuring Palestinian suicide bombings and armed attacks, and Israeli military incursions, targeted assassinations, and severe restrictions on movement.</p>
+                    <p>Over 3,000 Palestinians and 1,000 Israelis were killed during the five-year conflict.</p>
+                    <p>The Intifada ended with the Sharm el-Sheikh Summit in 2005 and a truce agreement between Israeli Prime Minister Ariel Sharon and Palestinian President Mahmoud Abbas.</p>`
+                },
+                '2005': {
+                    title: 'Gaza Disengagement (2005)',
+                    content: `<p>In August 2005, Israel unilaterally disengaged from the Gaza Strip, removing all Israeli settlements and military installations.</p>
+                    <p>Approximately 8,000 Israeli settlers were evacuated from 21 settlements in Gaza, and 4 settlements in the northern West Bank were also dismantled.</p>
+                    <p>While Israel removed its permanent military presence, it maintained control over Gaza's airspace, territorial waters, and border crossings (with the exception of the Rafah crossing with Egypt, which was monitored by European observers).</p>
+                    <p>Many analysts argue that the disengagement actually intensified the siege on Gaza, as Israel continued to control movement of goods and people in and out of the territory.</p>`
+                },
+                '2007': {
+                    title: 'Gaza Blockade (2007-Present)',
+                    content: `<p>After Hamas won Palestinian legislative elections in 2006 and took control of Gaza in 2007, Israel imposed a land, air, and sea blockade on the territory.</p>
+                    <p>The blockade severely restricts the movement of people and goods in and out of Gaza, with Israel arguing it is necessary for security reasons to prevent weapons from reaching Hamas.</p>
+                    <p>Human rights organizations have criticized the blockade as a form of collective punishment that has led to a humanitarian crisis in Gaza, with high unemployment, poverty, and dependence on aid.</p>
+                    <p>Multiple United Nations reports have described Gaza as "unlivable" due to the blockade's effects on the economy, infrastructure, and daily life.</p>`
+                },
+                'today': {
+                    title: 'Current Situation',
+                    content: `<p>Today, Palestinians continue to live under various forms of Israeli control:</p>
+                    <ul>
+                        <li><strong>West Bank:</strong> Divided into Areas A, B, and C under the Oslo Accords, with approximately 60% (Area C) under full Israeli military control. Israeli settlements continue to expand, fragmenting Palestinian territory.</li>
+                        <li><strong>Gaza Strip:</strong> Under blockade since 2007, with severe restrictions on movement and economy. Has experienced several major military operations.</li>
+                        <li><strong>East Jerusalem:</strong> Annexed by Israel in 1980, but not internationally recognized. Palestinian residents face home demolitions and residency rights challenges.</li>
+                        <li><strong>Israel proper:</strong> Palestinian citizens of Israel face discrimination in housing, education, and employment despite having nominal equal rights.</li>
+                    </ul>
+                    <p>The humanitarian situation remains dire, particularly in Gaza, where unemployment exceeds 50% and basic infrastructure including water, electricity, and healthcare is severely compromised.</p>`
+                }
+            };
+            
+            // Quote details
+            const quoteDetails = {
+                'Rafeef Ziadah': {
+                    role: 'Palestinian poet and activist',
+                    quote: 'We teach life, sir.',
+                    bio: `Rafeef Ziadah is a Palestinian performance poet and human rights activist based in London. She is best known for her poem "We Teach Life, Sir," which was written in response to a journalist who asked her to humanize Palestinians beyond the violence of conflict. Ziadah uses her poetry to challenge stereotypes and give voice to Palestinian experiences. She has performed internationally and her work has become an important part of contemporary Palestinian cultural resistance.`
+                },
+                'Mahmoud Darwish': {
+                    role: 'Palestinian poet',
+                    quote: 'If the olive trees knew the hands that planted them, their oil would become tears.',
+                    bio: `Mahmoud Darwish (1941-2008) is widely regarded as Palestine's national poet. Born in al-Birwa in Galilee, he was forced to flee with his family to Lebanon during the 1948 Nakba. When they returned a year later, they found their village destroyed. Darwish published over 30 volumes of poetry and eight books of prose, and his work has been translated into more than 20 languages. He gave voice to the Palestinian experience of exile, occupation, and longing for homeland. Darwish served on the PLO Executive Committee but resigned in 1993 over opposition to the Oslo Accords.`
+                },
+                'Edward Said': {
+                    role: 'Palestinian-American academic',
+                    quote: 'We cannot fight for our rights and our history as well as future until we are armed with weapons of criticism and dedicated consciousness.',
+                    bio: `Edward Said (1935-2003) was a Palestinian-American professor of literature at Columbia University, a public intellectual, and founder of the academic field of postcolonial studies. His book "Orientalism" (1978) is a foundational text of cultural studies. Born in Jerusalem, Said spent most of his life in the United States but remained a passionate advocate for Palestinian rights. He served as a member of the Palestinian National Council from 1977 to 1991 and was a vocal critic of both Israeli policies and the failures of Palestinian leadership.`
+                },
+                'Ghassan Kanafani': {
+                    role: 'Palestinian writer and martyr',
+                    quote: 'The Palestinian cause is not a cause for Palestinians only, but a cause for every revolutionary, wherever they are, as a cause of the exploited and oppressed masses in our era.',
+                    bio: `Ghassan Kanafani (1936-1972) was a Palestinian author and leading member of the Popular Front for the Liberation of Palestine. He is considered one of the most influential modern Palestinian authors and a pioneering figure in Palestinian resistance literature. His novels and short stories, including "Men in the Sun" and "Returning to Haifa," explore themes of displacement, resistance, and identity. Kanafani was assassinated by the Israeli Mossad in Beirut in 1972, along with his 17-year-old niece. His literary and political legacy continues to inspire Palestinians and revolutionaries worldwide.`
+                }
+            };
+            
+            // Action details
+            const actionDetails = {
+                'awareness': {
+                    title: 'Raise Awareness',
+                    content: `<p>Spreading accurate information is crucial for Palestinian solidarity. Here's how you can help raise awareness:</p>
+                    <ul>
+                        <li>Share verified news and information from Palestinian sources on social media</li>
+                        <li>Correct misinformation when you encounter it online</li>
+                        <li>Organize educational events in your community</li>
+                        <li>Use hashtags like #FreePalestine, #Gaza, #Palestine, #BDS to join the conversation</li>
+                        <li>Write letters to editors of local newspapers</li>
+                        <li>Create and share infographics that explain the situation clearly</li>
+                    </ul>
+                    <p>Remember to always center Palestinian voices and experiences in your advocacy.</p>`
+                },
+                'donate': {
+                    title: 'Donate to Support Palestinians',
+                    content: `<p>Financial support is urgently needed for humanitarian aid and advocacy. Consider donating to these organizations:</p>
+                    <ul>
+                        <li><strong>Medical Aid for Palestinians (MAP):</strong> Provides health care and medical services in the West Bank, Gaza, and Lebanon.</li>
+                        <li><strong>UNRWA:</strong> United Nations agency supporting Palestinian refugees with education, health care, and social services.</li>
+                        <li><strong>Addameer:</strong> Provides support and advocacy for Palestinian political prisoners.</li>
+                        <li><strong>The Palestine Children's Relief Fund (PCRF):</strong> Provides medical care for injured and sick children.</li>
+                        <li><strong>Al-Haq:</strong> Palestinian human rights organization documenting violations and advocating for accountability.</li>
+                        <li><strong>B'Tselem:</strong> Israeli information center for human rights in the occupied territories.</li>
+                    </ul>
+                    <p>Always research organizations before donating to ensure they align with your values.</p>`
+                },
+                'advocate': {
+                    title: 'Political Advocacy',
+                    content: `<p>Systemic change requires political pressure. Here's how you can advocate effectively:</p>
+                    <ul>
+                        <li><strong>Contact representatives:</strong> Call, email, or meet with your elected officials to demand they support Palestinian rights.</li>
+                        <li><strong>Sign petitions:</strong> Support campaigns calling for sanctions, arms embargoes, and accountability.</li>
+                        <li><strong>Join demonstrations:</strong> Participate in peaceful protests and vigils to show solidarity.</li>
+                        <li><strong>Vote with Palestine in mind:</strong> Support political candidates who advocate for Palestinian rights.</li>
+                        <li><strong>Push for divestment:</strong> Encourage universities, churches, and organizations to divest from companies complicit in occupation.</li>
+                        <li><strong>Support legislative efforts:</strong> Back initiatives like those condemning settlement expansion or supporting Palestinian statehood.</li>
+                    </ul>
+                    <p>Consistent, persistent pressure on decision-makers can create meaningful change.</p>`
+                },
+                'create': {
+                    title: 'Creative Resistance',
+                    content: `<p>Art and culture have always been powerful tools of Palestinian resistance. You can contribute by:</p>
+                    <ul>
+                        <li>Creating visual art that highlights Palestinian stories and struggles</li>
+                        <li>Writing poetry, stories, or articles centered on Palestinian experiences</li>
+                        <li>Producing music that incorporates Palestinian themes and sounds</li>
+                        <li>Organizing cultural events that feature Palestinian artists and filmmakers</li>
+                        <li>Using photography to document and share Palestinian life</li>
+                        <li>Supporting Palestinian artists by purchasing their work and promoting their platforms</li>
+                    </ul>
+                    <p>Art transcends boundaries and can change hearts and minds in ways that political discourse sometimes cannot.</p>
+                    <p>Some influential Palestinian artists to explore: Mona Hatoum, Emily Jacir, Sliman Mansour, Mohammed Assaf, and Elia Suleiman.</p>`
+                },
+                'boycott': {
+                    title: 'Boycott, Divestment, Sanctions (BDS)',
+                    content: `<p>The BDS movement calls for:</p>
+                    <ul>
+                        <li><strong>Boycott:</strong> Withdrawing support from Israel's apartheid regime, complicit Israeli sporting, cultural and academic institutions, and from all Israeli and international companies engaged in violations of Palestinian human rights.</li>
+                        <li><strong>Divestment:</strong> Pressuring banks, local councils, churches, pension funds and universities to withdraw investments from the State of Israel and all Israeli and international companies that sustain Israeli apartheid.</li>
+                        <li><strong>Sanctions:</strong> Pressuring governments to fulfill their legal obligations to end Israeli apartheid, and to support the Palestinian struggle for freedom, justice and equality.</li>
+                    </ul>
+                    <p>BDS targets companies and institutions complicit in:</p>
+                    <ul>
+                        <li>Israeli settlement construction and maintenance</li>
+                        <li>Israel's military actions against Palestinians</li>
+                        <li>Providing services to Israeli settlements</li>
+                        <li>Operating in occupied Palestinian territory</li>
+                    </ul>
+                    <p>Some commonly boycotted companies include HP, Siemens, AXA, Sabra, Puma, and Sodastream. Always research current BDS targets as the list evolves.</p>`
+                },
+                'educate': {
+                    title: 'Education and Learning',
+                    content: `<p>Education is fundamental to effective solidarity. Here's how to deepen your understanding:</p>
+                    <ul>
+                        <li>Organize study groups to read and discuss Palestinian history and literature</li>
+                        <li>Host film screenings of Palestinian documentaries and features</li>
+                        <li>Invite Palestinian speakers to share their experiences</li>
+                        <li>Develop educational materials for schools and community centers</li>
+                        <li>Challenge biased curricula in educational institutions</li>
+                        <li>Learn about the historical context of the conflict beyond recent events</li>
+                        <li>Follow Palestinian journalists and news sources for firsthand accounts</li>
+                    </ul>
+                    <p>Recommended resources to begin with:</p>
+                    <ul>
+                        <li><strong>Books:</strong> "The Hundred Years' War on Palestine" by Rashid Khalidi, "Palestine: A Four Thousand Year History" by Nur Masalha</li>
+                        <li><strong>Films:</strong> "5 Broken Cameras," "The Present," "Omar"</li>
+                        <li><strong>Podcasts:</strong> "The Palestine Podcast," "Status Hour," "The Electronic Intifada"</li>
+                        <li><strong>Organizations:</strong> Middle East Research and Information Project (MERIP), Jewish Voice for Peace, If Americans Knew</li>
+                    </ul>`
+                }
+            };
+            
+            // Open timeline modal on click
+            timelineContents.forEach(content => {
+                content.addEventListener('click', () => {
+                    const year = content.getAttribute('data-year');
+                    modalYear.textContent = timelineDetails[year].title;
+                    modalContent.innerHTML = timelineDetails[year].content;
+                    timelineModal.style.display = 'flex';
+                });
+            });
+            
+            // Open quote modal on click
+            const quotes = document.querySelectorAll('blockquote');
+            const quoteModal = document.getElementById('quote-modal');
+            const quoteAuthor = document.getElementById('quote-author');
+            const quoteRole = document.getElementById('quote-role');
+            const quoteText = document.getElementById('quote-text');
+            const authorBio = document.getElementById('author-bio');
+            
+            quotes.forEach(quote => {
+                quote.addEventListener('click', () => {
+                    const author = quote.getAttribute('data-author');
+                    quoteAuthor.textContent = author;
+                    quoteRole.textContent = quoteDetails[author].role;
+                    quoteText.textContent = quoteDetails[author].quote;
+                    authorBio.textContent = quoteDetails[author].bio;
+                    quoteModal.style.display = 'flex';
+                });
+            });
+            
+            // Open action modal on click
+            const actionCards = document.querySelectorAll('.action-card');
+            const actionModal = document.getElementById('action-modal');
+            const actionTitle = document.getElementById('action-title');
+            const actionContent = document.getElementById('action-content');
+            
+            actionCards.forEach(card => {
+                if (card.getAttribute('data-action')) {
+                    card.addEventListener('click', () => {
+                        const action = card.getAttribute('data-action');
+                        actionTitle.textContent = actionDetails[action].title;
+                        actionContent.innerHTML = actionDetails[action].content;
+                        actionModal.style.display = 'flex';
+                    });
+                }
+            });
+            
+            // Newsletter modal
+            const newsletterBtn = document.getElementById('newsletter-btn');
+            const newsletterModal = document.getElementById('newsletter-modal');
+            const newsletterForm = document.getElementById('newsletter-form');
+            
+            newsletterBtn.addEventListener('click', () => {
+                newsletterModal.style.display = 'flex';
+            });
+            
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                newsletterModal.style.display = 'none';
+            });
+            
+            // Close modals
+            const closeButtons = document.querySelectorAll('.close-modal');
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.modal').forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
+            
+            // Close modal when clicking outside content
+            window.addEventListener('click', (e) => {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

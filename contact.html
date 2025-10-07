@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Al-Ahlia Contracting Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2B48C;
+            --dark: #441102;
+            --light: #F5F5F0;
+            --accent: #CD853F;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+            --error: #e74c3c;
+            --success: #2ecc71;
+        }
+        
+        /* Rest of your contact page styles... */
+        .page-header {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1484807352052-23338990c6c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Breadcrumbs Styling */
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            display: inline-flex;
+            padding: 10px 25px;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .breadcrumb-item {
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: #ffffff;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '›';
+            margin: 0 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Contact Tabs */
+        .contact-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-tab {
+            padding: 15px 30px;
+            background: white;
+            margin: 0 10px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .contact-tab:hover:not(.active) {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Form Sections */
+        .form-section {
+            display: none;
+            padding: 40px 0 80px;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-label.required::after {
+            content: '*';
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            border: 1px dashed #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            cursor: pointer;
+        }
+        
+        .file-upload-button {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .file-name {
+            color: var(--gray);
+        }
+        
+        /* Error Messages */
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-control.error {
+            border-color: var(--error);
+        }
+        
+        /* Success Message */
+        .success-message {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            margin: 30px auto 0;
+            min-width: 200px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .submit-btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Prevent horizontal scrolling */
+        html, body {
+            overflow-x: hidden;
+        }
+        
+        /* Improve touch targets */
+        .contact-nav-link, .contact-dropdown-item, .contact-footer-links a, 
+        .contact-social-links a, .contact-tab, .submit-btn, .file-upload-label {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* RTL Support */
+        html[dir="rtl"] body {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Cairo', 'Montserrat', sans-serif;
+        }
+
+        html[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+            content: '‹';
+        }
+
+        html[dir="rtl"] .form-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        html[dir="rtl"] .success-message {
+            border-left: none;
+            border-right: 4px solid var(--success);
+        }
+
+        html[dir="rtl"] .file-upload-label {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .form-label.required::after {
+            margin-left: 0;
+            margin-right: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                height: 50vh;
+                margin-top: 70px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            .contact-tab {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                margin: 0 5px 10px;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .breadcrumb {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 8px 15px;
+            }
+            
+            .breadcrumb-item {
+                font-size: 0.8rem;
+            }
+            
+            .breadcrumb-item + .breadcrumb-item::before {
+                margin: 0 8px;
+            }
+            
+            .contact-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-tab {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+            
+            .submit-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .form-container {
+                padding: 15px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+            }
+            
+            .file-upload-label {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with standard class names -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Al-Ahlia Contracting Group Logo">
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link" data-en="About Us" data-ar="من نحن">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link" data-en="Our Services" data-ar="خدماتنا">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link" data-en="Our Projects" data-ar="مشاريعنا">Our Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <button onclick="toggleLanguage()" class="btn" style="background: var(--primary); color: white; border: none;">
+                            <i class="fas fa-language"></i> <span id="language-text" data-en="Arabic" data-ar="English">Arabic</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="header-content">
+                <h1 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="contact-tabs">
+                <div class="contact-tab active" data-tab="careers" data-en="Careers" data-ar="الوظائف">Careers</div>
+                <div class="contact-tab" data-tab="general" data-en="General Inquiries" data-ar="استفسارات عامة">General Inquiries</div>
+                <div class="contact-tab" data-tab="contractors" data-en="Contractors" data-ar="المقاولون">Contractors</div>
+            </div>
+
+            <div id="careers" class="form-section active">
+                <div class="form-container">
+                    <h2 class="form-title" data-en="Join Our Team" data-ar="انضم إلى فريقنا">Join Our Team</h2>
+                    <div class="success-message" id="careers-success" data-en="Thank you for your application! We'll review your information and contact you soon." data-ar="شكرًا لك على تقديم طلبك! سنراجع معلوماتك وسنتواصل معك قريبًا.">
+                        Thank you for your application! We'll review your information and contact you soon.
+                    </div>
+                    <form id="careers-form" enctype="multipart/form-data" novalidate>
+                        <div class="form-group">
+                            <label for="candidate-name" class="form-label required" data-en="Candidate Name" data-ar="اسم المرشح">Candidate Name</label>
+                            <input type="text" id="candidate-name" name="candidateName" class="form-control" required>
+                            <div class="error-message" id="candidate-name-error" data-en="Please enter your name" data-ar="يرجى إدخال اسمك">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob" class="form-label required" data-en="Date of Birth" data-ar="تاريخ الميلاد">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" class="form-control" required>
+                            <div class="error-message" id="dob-error" data-en="Please enter your date of birth" data-ar="يرجى إدخال تاريخ ميلادك">Please enter your date of birth</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="career-email" class="form-label required" data-en="Your Email" data-ar="بريدك الإلكتروني">Your Email</label>
+                            <input type="email" id="career-email" name="careerEmail" class="form-control" required>
+                            <div class="error-message" id="career-email-error" data-en="Please enter a valid email address" data-ar="يرجى إدخال عنوان بريد إلكتروني صحيح">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="education" class="form-label" data-en="Education/Qualifications" data-ar="المؤهلات التعليمية">Education/Qualifications</label>
+                            <textarea id="education" name="education" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality" class="form-label" data-en="Nationality" data-ar="الجنسية">Nationality</label>
+                            <input type="text" id="nationality" name="nationality" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" data-en="Upload CV File" data-ar="رفع ملف السيرة الذاتية">Upload CV File</label>
+                            <div class="file-upload">
+                                <input type="file" id="cv-upload" name="cv" class="file-upload-input" accept=".pdf,.doc,.docx" required>
+                                <label for="cv-upload" class="file-upload-label">
+                                    <span class="file-name" data-en="No file chosen" data-ar="لم يتم اختيار ملف">No file chosen</span>
+                                    <span class="file-upload-button" data-en="Choose File" data-ar="اختر ملف">Choose File</span>
+                                </label>
+                            </div>
+                            <div class="error-message" id="cv-upload-error" data-en="Please upload your CV" data-ar="يرجى رفع سيرتك الذاتية">Please upload your CV</div>
+                        </div>
+                        <button type="submit" class="submit-btn" id="careers-submit" data-en="Submit Application" data-ar="تقديم الطلب">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="general" class="form-section">
+                <div class="form-container">
+                    <h2 class="form-title" data-en="General Inquiries" data-ar="استفسارات عامة">General Inquiries</h2>
+                    <div class="success-message" id="general-success" data-en="Thank you for your message! We'll get back to you as soon as possible." data-ar="شكرًا لك على رسالتك! سوف نعود إليك في أقرب وقت ممكن.">
+                        Thank you for your message! We'll get back to you as soon as possible.
+                    </div>
+                    <form id="general-form" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label required" data-en="Your Name" data-ar="اسمك">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="error-message" id="name-error" data-en="Please enter your name" data-ar="يرجى إدخال اسمك">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label required" data-en="Your Email" data-ar="بريدك الإلكتروني">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="error-message" id="email-error" data-en="Please enter a valid email address" data-ar="يرجى إدخال عنوان بريد إلكتروني صحيح">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label" data-en="Subject" data-ar="الموضوع">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label" data-en="Your Message" data-ar="رسالتك">Your Message</label>
+                            <textarea id="message" name="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="general-submit" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="contractors" class="form-section">
+                <div class="form-container">
+                    <h2 class="form-title" data-en="Contractor Registration" data-ar="تسجيل المقاول">Contractor Registration</h2>
+                    <div class="success-message" id="contractors-success" data-en="Thank you for your registration! We'll review your information and contact you soon." data-ar="شكرًا لك على تسجيلك! سنراجع معلوماتك وسنتواصل معك قريبًا.">
+                        Thank you for your registration! We'll review your information and contact you soon.
+                    </div>
+                    <form id="contractors-form" novalidate>
+                        <div class="form-group">
+                            <label for="contractor-name" class="form-label required" data-en="Your Name" data-ar="اسمك">Your Name</label>
+                            <input type="text" id="contractor-name" name="contractorName" class="form-control" required>
+                            <div class="error-message" id="contractor-name-error" data-en="Please enter your name" data-ar="يرجى إدخال اسمك">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="business" class="form-label required" data-en="Business" data-ar="نوع العمل">Business</label>
+                            <select id="business" name="business" class="form-control" required>
+                                <option value="" disabled selected data-en="Select your business type" data-ar="اختر نوع عملك">Select your business type</option>
+                                <option value="contractor" data-en="Contractor" data-ar="مقاول">Contractor</option>
+                                <option value="supplier" data-en="Supplier" data-ar="مورد">Supplier</option>
+                            </select>
+                            <div class="error-message" id="business-error" data-en="Please select your business type" data-ar="يرجى اختيار نوع عملك">Please select your business type</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label required" data-en="Phone" data-ar="الهاتف">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                            <div class="error-message" id="phone-error" data-en="Please enter a valid phone number" data-ar="يرجى إدخال رقم هاتف صحيح">Please enter a valid phone number</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fax" class="form-label" data-en="Fax" data-ar="الفاكس">Fax</label>
+                            <input type="text" id="fax" name="fax" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="contractor-email" class="form-label required" data-en="Your Email" data-ar="بريدك الإلكتروني">Your Email</label>
+                            <input type="email" id="contractor-email" name="contractorEmail" class="form-control" required>
+                            <div class="error-message" id="contractor-email-error" data-en="Please enter a valid email address" data-ar="يرجى إدخال عنوان بريد إلكتروني صحيح">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="location" class="form-label" data-en="Location" data-ar="الموقع">Location</label>
+                            <input type="text" id="location" name="location" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="project-type" class="form-label" data-en="Project Type" data-ar="نوع المشروع">Project Type</label>
+                            <select id="project-type" name="projectType" class="form-control">
+                                <option value="" disabled selected data-en="Select a project type" data-ar="اختر نوع المشروع">Select a project type</option>
+                                <option value="residential" data-en="Residential" data-ar="سكني">Residential</option>
+                                <option value="commercial" data-en="Commercial" data-ar="تجاري">Commercial</option>
+                                <option value="governmental" data-en="Governmental" data-ar="حكومي">Governmental</option>
+                                <option value="healthcare" data-en="Healthcare" data-ar="صحي">Healthcare</option>
+                                <option value="villas" data-en="Villas" data-ar="فلل">Villas</option>
+                                <option value="mosque" data-en="Mosque" data-ar="مسجد">Mosque</option>
+                                <option value="educational" data-en="Educational" data-ar="تعليمي">Educational</option>
+                                <option value="industrial" data-en="Industrial" data-ar="صناعي">Industrial</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="form-label" data-en="Description" data-ar="الوصف">Description</label>
+                            <textarea id="description" name="description" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="contractors-submit" data-en="Register as Contractor" data-ar="التسجيل كمقاول">Register as Contractor</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer with standard class names -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-en="Al-Ahlia Contracting" data-ar="الأهلية للمقاولات">Al-Ahlia Contracting</h3>
+                    <p data-en="Building Kuwait's future with excellence since 1978. We deliver quality construction services with integrity and innovation." data-ar="نبني مستقبل الكويت بتميز منذ عام 1978. نقدم خدمات بناء عالية الجودة بالنزاهة والابتكار.">Building Kuwait's future with excellence since 1978. We deliver quality construction services with integrity and innovation.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/ahlia-contracting-group" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/acgkuwait/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/acgkuwait" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/user/acgkuwait" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="about.html" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                        <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="projects.html" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                        <li><a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-en="Services" data-ar="الخدمات">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html" data-en="Construction Management" data-ar="إدارة الإنشاءات">Construction Management</a></li>
+                        <li><a href="services.html" data-en="Architectural Design" data-ar="التصميم المعماري">Architectural Design</a></li>
+                        <li><a href="services.html" data-en="Project Planning" data-ar="تخطيط المشاريع">Project Planning</a></li>
+                        <li><a href="services.html" data-en="Value Engineering" data-ar="هندسة القيمة">Value Engineering</a></li>
+                        <li><a href="services.html" data-en="Residential Construction" data-ar="البناء السكني">Residential Construction</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-en="Contact Info" data-ar="معلومات الاتصال">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-en="Al-Rai, Kuwait" data-ar="الراي، الكويت">Al-Rai, Kuwait</span></li>
+                        <li><i class="fas fa-phone-alt"></i> +965 24728023</li>
+                        <li><i class="fas fa-envelope"></i> info@acg.com.kw</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-en="© 2025 Al-Ahlia Contracting Group. All Rights Reserved." data-ar="© 2025 مجموعة الأهلية للمقاولات. جميع الحقوق محفوظة.">© <span id="copyright-year">2025</span> Al-Ahlia Contracting Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language state
+        let isArabic = false;
+
+        // Sticky header
+        const header = document.getElementById('header');
+        const sticky = header.offsetTop;
+
+        function stickyHeader() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        }
+
+        window.onscroll = function() {
+            stickyHeader()
+        };
+
+        // Set current year for copyright
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Tab switching functionality
+        document.querySelectorAll('.contact-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.contact-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding section
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // File upload name display
+        const fileInput = document.getElementById('cv-upload');
+        const fileName = document.querySelector('.file-name');
+        
+        if(fileInput) {
+            fileInput.addEventListener('change', function() {
+                if(this.files.length > 0) {
+                    fileName.textContent = this.files[0].name;
+                } else {
+                    fileName.textContent = isArabic ? 'لم يتم اختيار ملف' : 'No file chosen';
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if(mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+                
+                // Toggle aria-expanded attribute for accessibility
+                const isExpanded = navMenu.classList.contains('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Language toggle function
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            
+            // Update the language button text
+            document.getElementById('language-text').textContent = isArabic ? 'English' : 'العربية';
+            
+            // Change the page language and direction
+            document.documentElement.lang = isArabic ? "ar" : "en";
+            document.documentElement.dir = isArabic ? "rtl" : "ltr";
+            
+            // Update all translatable elements
+            updatePageContent();
+        }
+        
+        // Update all translatable content on the page
+        function updatePageContent() {
+            const lang = isArabic ? 'ar' : 'en';
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (isArabic && element.hasAttribute('data-ar')) {
+                    element.textContent = element.getAttribute('data-ar');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Update file upload text if needed
+            if (fileInput && !fileInput.files.length) {
+                fileName.textContent = isArabic ? 'لم يتم اختيار ملف' : 'No file chosen';
+            }
+        }
+
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize form handling
+            initFormValidation();
+        });
+
+        function initFormValidation() {
+            // Careers form validation
+            const careersForm = document.getElementById('careers-form');
+            if (careersForm) {
+                careersForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (validateCareersForm()) {
+                        submitForm('/api/contact/careers', new FormData(careersForm), 'careers-form', 'careers-submit');
+                    }
+                });
+            }
+
+            // General form validation
+            const generalForm = document.getElementById('general-form');
+            if (generalForm) {
+                generalForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (validateGeneralForm()) {
+                        // Create a proper form data object
+                        const formData = new FormData();
+                        formData.append('name', document.getElementById('name').value);
+                        formData.append('email', document.getElementById('email').value);
+                        formData.append('subject', document.getElementById('subject').value);
+                        formData.append('message', document.getElementById('message').value);
+                        
+                        submitForm('/api/contact/general', formData, 'general-form', 'general-submit');
+                    }
+                });
+            }
+
+            // Contractors form validation
+            const contractorsForm = document.getElementById('contractors-form');
+            if (contractorsForm) {
+                contractorsForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (validateContractorsForm()) {
+                        const formData = new FormData(contractorsForm);
+                        submitForm('/api/contact/contractors', formData, 'contractors-form', 'contractors-submit');
+                    }
+                });
+            }
+
+            // Add input event listeners to clear errors when typing
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.addEventListener('input', function() {
+                    clearError(this.id);
+                });
+            });
+        }
+
+        function validateCareersForm() {
+            let isValid = true;
+            
+            // Validate name
+            const name = document.getElementById('candidate-name');
+            if (!name.value.trim()) {
+                showError('candidate-name-error', isArabic ? 'يرجى إدخال اسمك' : 'Please enter your name');
+                isValid = false;
+            }
+            
+            // Validate date of birth
+            const dob = document.getElementById('dob');
+            if (!dob.value) {
+                showError('dob-error', isArabic ? 'يرجى إدخال تاريخ ميلادك' : 'Please enter your date of birth');
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('career-email');
+            if (!isValidEmail(email.value)) {
+                showError('career-email-error', isArabic ? 'يرجى إدخال عنوان بريد إلكتروني صحيح' : 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Validate CV file
+            const cv = document.getElementById('cv-upload');
+            if (!cv.files || cv.files.length === 0) {
+                showError('cv-upload-error', isArabic ? 'يرجى رفع سيرتك الذاتية' : 'Please upload your CV');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function validateGeneralForm() {
+            let isValid = true;
+            
+            // Validate name
+            const name = document.getElementById('name');
+            if (!name.value.trim()) {
+                showError('name-error', isArabic ? 'يرجى إدخال اسمك' : 'Please enter your name');
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email');
+            if (!isValidEmail(email.value)) {
+                showError('email-error', isArabic ? 'يرجى إدخال عنوان بريد إلكتروني صحيح' : 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function validateContractorsForm() {
+            let isValid = true;
+            
+            // Validate name
+            const name = document.getElementById('contractor-name');
+            if (!name.value.trim()) {
+                showError('contractor-name-error', isArabic ? 'يرجى إدخال اسمك' : 'Please enter your name');
+                isValid = false;
+            }
+            
+            // Validate business
+            const business = document.getElementById('business');
+            if (!business.value) {
+                showError('business-error', isArabic ? 'يرجى اختيار نوع عملك' : 'Please select your business type');
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phone = document.getElementById('phone');
+            if (!phone.value.trim()) {
+                showError('phone-error', isArabic ? 'يرجى إدخال رقم هاتف صحيح' : 'Please enter your phone number');
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('contractor-email');
+            if (!isValidEmail(email.value)) {
+                showError('contractor-email-error', isArabic ? 'يرجى إدخال عنوان بريد إلكتروني صحيح' : 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function showError(errorElementId, message) {
+            const errorElement = document.getElementById(errorElementId);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                
+                // Add error class to the input
+                const inputId = errorElementId.replace('-error', '');
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.classList.add('error');
+                }
+            }
+        }
+
+        function clearError(inputId) {
+            const errorElement = document.getElementById(inputId + '-error');
+            if (errorElement) {
+                errorElement.style.display = 'none';
+                
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.classList.remove('error');
+                }
+            }
+        }
+
+        async function submitForm(url, formData, formId, submitBtnId) {
+            try {
+                const submitBtn = document.getElementById(submitBtnId);
+                const form = document.getElementById(formId);
+                const successMessage = document.getElementById(formId.replace('-form', '-success'));
+                
+                if (!submitBtn) {
+                    console.error('Submit button not found:', submitBtnId);
+                    return;
+                }
+                
+                const originalText = submitBtn.textContent;
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = isArabic ? 'جاري الإرسال...' : 'Submitting...';
+                
+                // For non-multipart forms, convert to URLSearchParams
+                let body;
+                let headers = {};
+                
+                if (formData instanceof FormData && url !== '/api/contact/careers') {
+                    // Convert FormData to URLSearchParams for non-file submissions
+                    const params = new URLSearchParams();
+                    for (let [key, value] of formData.entries()) {
+                        params.append(key, value);
+                    }
+                    body = params;
+                    headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+                } else {
+                    // For file uploads, let the browser set the content type
+                    body = formData;
+                }
+                
+                const res = await fetch(url, {
+                    method: 'POST',
+                    headers: headers,
+                    body: body
+                });
+                
+                if (!res.ok) {
+                    throw new Error(`Server returned ${res.status}: ${res.statusText}`);
+                }
+                
+                const text = await res.text();
+                let data;
+                
+                try {
+                    data = JSON.parse(text);
+                } catch (e) {
+                    // If response is not JSON, treat as success if status is 200
+                    if (res.status >= 200 && res.status < 300) {
+                        data = { success: true, message: 'Form submitted successfully' };
+                    } else {
+                        throw new Error('Invalid response from server');
+                    }
+                }
+                
+                if (data.success) {
+                    // Show success message
+                    if (successMessage) {
+                        successMessage.style.display = 'block';
+                        form.reset();
+                        
+                        // Reset file name display for careers form
+                        if (formId === 'careers-form') {
+                            document.querySelector('.file-name').textContent = isArabic ? 'لم يتم اختيار ملف' : 'No file chosen';
+                        }
+                        
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    // Show error message
+                    alert(isArabic ? 'خطأ: ' + (data.message || 'فشل الإرسال') : 'Error: ' + (data.message || 'Submission failed'));
+                }
+                
+                return data;
+            } catch (err) {
+                alert(isArabic ? "فشل الإرسال: " + err.message : "Submission failed: " + err.message);
+                console.error(err);
+            } finally {
+                // Reset button state
+                const submitBtn = document.getElementById(submitBtnId);
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    
+                    // Reset button text based on form type and language
+                    if (submitBtnId === 'careers-submit') {
+                        submitBtn.textContent = isArabic ? 'تقديم الطلب' : 'Submit Application';
+                    } else if (submitBtnId === 'general-submit') {
+                        submitBtn.textContent = isArabic ? 'إرسال الرسالة' : 'Send Message';
+                    } else if (submitBtnId === 'contractors-submit') {
+                        submitBtn.textContent = isArabic ? 'التسجيل كمقاول' : 'Register as Contractor';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
